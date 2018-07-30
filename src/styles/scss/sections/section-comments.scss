@@ -1,7 +1,7 @@
-.comments {
+.comments__list {
     display: flex;
     flex-flow: row wrap;
-    &__item {
+    .comments__item {
         position: relative;
         width: 25%;
         height: 330px;
@@ -35,18 +35,12 @@
         }
         &-btn {
             position: relative;
-            color: white;
             background-color: $sgrey;
-            padding: 10px 15px;
-            border-radius: 5px;
-            border: transparent;
             font-size: 14px;
-            text-transform: uppercase;
-            cursor: pointer;
             z-index: 10;            
         }
     }
-    &__item--1 {
+    .comments__item--1 {
         background-image: url('../images/content/photo-reviews/comment1.jpg');
         background-size: 100%;
         background-position: 0% 25%;
@@ -68,7 +62,7 @@
         }
         
     }
-    &__item--2 {
+    .comments__item--2 {
         background-image: url('../images/content/photo-reviews/comment2.jpg');
         background-size: 370%;
         background-position: 20% 25%;
@@ -89,7 +83,7 @@
             opacity: 0.6;
         }
     }
-    &__item--3 {
+    .comments__item--3 {
         background-image: url('../images/content/photo-reviews/comment3.jpg');
         background-size: 270%;
         background-position: 50% 10%;
@@ -110,7 +104,7 @@
             opacity: 0.6;
         }
     }
-    &__item--4 {
+    .comments__item--4 {
         background-image: url('../images/content/photo-reviews/comment4.jpg');
         background-size: 400%;
         background-position: 45% 40%;
@@ -131,7 +125,7 @@
             opacity: 0.6;
         }
     }
-    &__item--5 {
+    .comments__item--5 {
         background-image: url('../images/content/photo-reviews/comment5.jpg');
         background-size: 245%;
         background-position: 60% 5%;
@@ -152,7 +146,7 @@
             opacity: 0.6;
         }
     }
-    &__item--6 {
+    .comments__item--6 {
         background-image: url('../images/content/photo-reviews/comment6.jpg');
         background-size: 170%;
         background-position: 70% 0%;
@@ -173,7 +167,7 @@
             opacity: 0.6;
         }
     }
-    &__item--7 {
+    .comments__item--7 {
         background-image: url('../images/content/photo-reviews/comment7.jpg');
         background-size: 190%;
         background-position: 30% 0%;
@@ -194,7 +188,7 @@
             opacity: 0.6;
         }
     }
-    &__item--8 {
+    .comments__item--8 {
         background-image: url('../images/content/photo-reviews/comment8.jpg');
         background-size: 150%;
         background-position: 30% 0%;

@@ -9,6 +9,10 @@
   </thead>
   <tbody>
     <tr>
+      <td><code>Ссылка на сайт</code></td>
+      <td>https://vusal27.github.io/Burgers/</td>
+    </tr>
+    <tr>
       <td><code>git clone 'url'</code></td>
       <td>Клонировать данный репозиторий.</td>
     </tr>

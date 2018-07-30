@@ -1,12 +1,28 @@
-.section-hero {
-    width: 100%;
-    height: 660px;
+.hero {
     background: url('../images/bg/bg11.jpg') 0 0 / cover no-repeat ;
-}
-.container__menu {
-    width: 90%;
-    height: 660px;
-    margin: 0 auto;
+    &__content {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 70px;
+        &-desc {
+            width: 35%;
+            margin: auto 0;
+        }
+        &-text {
+            font-family: 'lifehack', Helvetica, sans-serif;
+            color: white;
+            font-size: 65px;
+        }
+    }
+    &__down-link {
+        display: block;
+        width: 45px;
+        height: 25px;
+        background-image: url('../images/content/intro/Strelka1.png');
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        cursor: pointer;
+    }
 }
 .header {
     display: flex;
@@ -38,62 +54,4 @@
 }
 .menu__list-item:last-child:after {
     content: none;
-}
-.menu__btn {
-    padding: 15px;
-    color: white;
-    text-transform: uppercase;
-    background-color: #e34e29;
-    border: transparent;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.main {
-    display: flex;
-    margin-bottom: 110px;
-}
-.content {
-    display: flex;
-    justify-content: center;
-    width: 95%;
-    .burger {
-        background: url('../images/content/intro/burger1.png');
-        background-repeat: no-repeat;
-        width: 35%;
-        height: 375px;
-        position: relative;
-    }
-    .burger::before {
-        content: "";
-        background-image: url('../images/content/intro/kapli1.png');
-        background-repeat: no-repeat;
-        position: absolute;
-        top: 55px;
-        right: -60px;
-        width: 128%;
-        height: 77%;
-    }
-}
-.description {
-    width: 35%;
-    margin: auto 0;
-}
-.title {
-    font-size: 75px;
-    font-family: 'gagalin', Helvetica, sans-serif;
-    color: #f7b23b;
-}
-.description__text {
-    font-family: 'lifehack', Helvetica, sans-serif;
-    color: white;
-    font-size: 65px;
-}
-.down__link {
-    display: block;
-    width: 45px;
-    height: 25px;
-    background-image: url('../images/content/intro/Strelka1.png');
-    background-repeat: no-repeat;
-    margin: 0 auto;
-    cursor: pointer;
 }

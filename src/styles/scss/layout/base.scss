@@ -22,3 +22,39 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
     font-weight: normal;
 }
+.wrapper {
+    position: relative;
+    height: 100%;
+}
+.container {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+.section {
+    height: 100vh;
+    min-height: 650px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+    cursor: pointer;
+    &__color-orange {
+        background-color: #e34e29;
+    }
+}
+.title {
+    font-size: 75px;
+    font-family: 'gagalin', Helvetica, sans-serif;
+    color: $orange;
+    &__color-grey {
+        color: $sgrey;
+    }
+}
