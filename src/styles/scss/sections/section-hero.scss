@@ -3,10 +3,13 @@
     &__content {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 70px;
+        align-items: center;
+        margin-bottom: 60px;
         &-desc {
-            width: 35%;
-            margin: auto 0;
+            width: 50%;
+        }
+        &-img {
+            width: 50%;
         }
         &-text {
             font-family: 'lifehack', Helvetica, sans-serif;
@@ -14,14 +17,17 @@
             font-size: 65px;
         }
     }
-    &__down-link {
-        display: block;
-        width: 45px;
-        height: 25px;
-        background-image: url('../images/content/intro/Strelka1.png');
-        background-repeat: no-repeat;
-        margin: 0 auto;
-        cursor: pointer;
+    &__down {
+        margin-bottom: 10px;
+        &-link {
+            display: block;
+            width: 45px;
+            height: 25px;
+            background-image: url('../images/content/intro/Strelka1.png');
+            background-repeat: no-repeat;
+            margin: 0 auto;
+            cursor: pointer;
+        }
     }
 }
 .header {
@@ -29,19 +35,25 @@
     justify-content: space-between;
     align-items: center;
 }
+.logo {
+    display: block;
+}
 .menu__list {
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
-    .menu__list-item {
+    flex-wrap: wrap;
+    .menu__item {
         position: relative;
-        margin:0 15px;
-        .menu__list-link {
+        .menu__link {
             color: white;
+            display: block;
+            font-size: 13px;
+            margin: 0 15px 0 15px;
         }
     }
 }
-.menu__list-item::after {
+.menu__item::after {
     content: "";
     display: block;
     width: 4px;
@@ -49,9 +61,9 @@
     background-color: white;
     border-radius: 50%;
     position: absolute;
-    top: 7px;
-    right: -16px;
+    top: 5px;
+    right: -2px;
 }
-.menu__list-item:last-child:after {
+.menu__item:last-child:after {
     content: none;
 }

@@ -26,16 +26,24 @@ h1,h2,h3,h4,h5,h6 {
     position: relative;
     height: 100%;
 }
+.main-content {
+    height: 100%;
+}
 .container {
-    width: 90%;
+    width: calc(100% - 20px);
+    max-width: 940px;
     height: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &--space-between {
+        justify-content: space-between;
+    }
 }
 .section {
     height: 100vh;
     min-height: 650px;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 .button {
     padding: 10px 15px;
@@ -46,15 +54,20 @@ h1,h2,h3,h4,h5,h6 {
     color: white;
     border: none;
     cursor: pointer;
-    &__color-orange {
+    &--color-orange {
         background-color: #e34e29;
     }
 }
 .title {
-    font-size: 75px;
+    font-size: 72px;
     font-family: 'gagalin', Helvetica, sans-serif;
     color: $orange;
     &__color-grey {
         color: $sgrey;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    &--margin-button {
+        margin-bottom: 15px;
     }
 }

@@ -1,39 +1,30 @@
 .we {
     background: url('../images/bg/bg2.jpg') 0 0 / cover no-repeat ;
-    &__container {
-        text-align: center;
-        display: flex;
-        flex-flow: column;
-        justify-content: space-around;
-        align-items: center;
-    }
     &__list {
         display: flex;
-        justify-content: space-around;
-        margin: 0 auto;
     }
     &__item {
-        width: 27%;
+        flex: 1;
         text-align: center;
-        &__img {
-            margin-bottom: 12%;
-            &__img--hand {
-                margin-bottom: 6%;
-            }
-        }
-        &__name {
-            color: $sgrey;
-            font-family: 'lifehack', Helvetica, sans-serif;
-            margin-bottom: 7%;
-            font-size: 28px;
-            &--natural {
-                margin-bottom: 5%;
-            }
-        }
-        &__text {
-            font-weight: 300;
-            color: $sgrey;
-            font-size: 14px;
-        }
+        margin: 0 20px;
+    }
+    &__picture {
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+
+    }
+    &__name {
+        color: $sgrey;
+        font-family: 'lifehack', Helvetica, sans-serif;
+        margin-bottom: 7%;
+        font-size: 24px;
+    }
+    &__text {
+        font-weight: 300;
+        color: $sgrey;
+        font-size: 14px;
     }
 }
