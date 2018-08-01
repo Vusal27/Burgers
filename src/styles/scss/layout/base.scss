@@ -66,12 +66,12 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 72px;
     font-family: 'gagalin', Helvetica, sans-serif;
     color: $orange;
-    &__color-grey {
+    &_color-grey {
         color: $sgrey;
         text-align: center;
         margin-bottom: 40px;
     }
-    &--margin-button {
+    &_margin-button {
         margin-bottom: 15px;
     }
 }

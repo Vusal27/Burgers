@@ -11,6 +11,7 @@
         position: relative;
         width: 25%;
         height: 50%;
+        background-position-x: 35%;
         filter: grayscale(100%);
         color: white;
         transition: .5s;
@@ -52,37 +53,5 @@
             line-height: 1.7;
             margin-bottom: 25px;          
         }
-    }
-    .comments__item--1 {
-        background-image: url('../images/content/photo-reviews/comment1.jpg');
-        background-position: 0% 25%;
-    }
-    .comments__item--2 {
-        background-image: url('../images/content/photo-reviews/comment2.jpg');
-        background-position: 20% 25%;
-    }
-    .comments__item--3 {
-        background-image: url('../images/content/photo-reviews/comment3.jpg');
-        background-position: 50% 10%;
-    }
-    .comments__item--4 {
-        background-image: url('../images/content/photo-reviews/comment4.jpg');
-        background-position: 45% 40%;
-    }
-    .comments__item--5 {
-        background-image: url('../images/content/photo-reviews/comment5.jpg');
-        background-position: 60% 5%;
-    }
-    .comments__item--6 {
-        background-image: url('../images/content/photo-reviews/comment6.jpg');
-        background-position: 70% 0%;
-    }
-    .comments__item--7 {
-        background-image: url('../images/content/photo-reviews/comment7.jpg');
-        background-position: 30% 0%;
-    }
-    .comments__item--8 {
-        background-image: url('../images/content/photo-reviews/comment8.jpg');
-        background-position: 30% 0%;
     }
 }

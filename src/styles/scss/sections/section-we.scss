@@ -4,9 +4,11 @@
         display: flex;
     }
     &__item {
+        display: flex;
+        flex-direction: column;
         flex: 1;
         text-align: center;
-        margin: 0 20px;
+        padding: 0 10px;
     }
     &__picture {
         margin-bottom: 20px;
@@ -26,5 +28,6 @@
         font-weight: 300;
         color: $sgrey;
         font-size: 14px;
+        line-height: 1.42;
     }
 }

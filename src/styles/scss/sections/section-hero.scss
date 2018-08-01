@@ -4,7 +4,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-bottom: 60px;
+        margin-top: -60px;
         &-desc {
             width: 50%;
         }
@@ -19,6 +19,7 @@
     }
     &__down {
         margin-bottom: 30px;
+        align-self: center;
         &-link {
             display: block;
             width: 45px;
