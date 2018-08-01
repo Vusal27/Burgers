@@ -116,11 +116,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 72px;
   font-family: 'gagalin', Helvetica, sans-serif;
   color: #f7b23b; }
-  .title__color-grey {
+  .title_color-grey {
     color: #2e3133;
     text-align: center;
     margin-bottom: 40px; }
-  .title--margin-button {
+  .title_margin-button {
     margin-bottom: 15px; }
 
 .hero {
@@ -137,7 +137,7 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-bottom: 60px; }
+    margin-top: -60px; }
     .hero__content-desc {
       width: 50%; }
     .hero__content-img {
@@ -147,7 +147,10 @@ h1, h2, h3, h4, h5, h6 {
       color: white;
       font-size: 65px; }
   .hero__down {
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center; }
     .hero__down-link {
       display: block;
       width: 45px;
@@ -218,12 +221,21 @@ h1, h2, h3, h4, h5, h6 {
     display: -ms-flexbox;
     display: flex; }
   .we__item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
     text-align: center;
-    margin: 0 20px; }
+    padding: 0 10px; }
   .we__picture {
     margin-bottom: 20px; }
   .we__img {
@@ -237,7 +249,8 @@ h1, h2, h3, h4, h5, h6 {
   .we__text {
     font-weight: 300;
     color: #2e3133;
-    font-size: 14px; }
+    font-size: 14px;
+    line-height: 1.42; }
 
 .comments__content {
   width: 100%;
@@ -259,6 +272,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     width: 25%;
     height: 50%;
+    background-position-x: 35%;
     -webkit-filter: grayscale(100%);
             filter: grayscale(100%);
     color: white;
@@ -307,30 +321,6 @@ h1, h2, h3, h4, h5, h6 {
       font-weight: 300;
       line-height: 1.7;
       margin-bottom: 25px; }
-  .comments__list .comments__item--1 {
-    background-image: url("../images/content/photo-reviews/comment1.jpg");
-    background-position: 0% 25%; }
-  .comments__list .comments__item--2 {
-    background-image: url("../images/content/photo-reviews/comment2.jpg");
-    background-position: 20% 25%; }
-  .comments__list .comments__item--3 {
-    background-image: url("../images/content/photo-reviews/comment3.jpg");
-    background-position: 50% 10%; }
-  .comments__list .comments__item--4 {
-    background-image: url("../images/content/photo-reviews/comment4.jpg");
-    background-position: 45% 40%; }
-  .comments__list .comments__item--5 {
-    background-image: url("../images/content/photo-reviews/comment5.jpg");
-    background-position: 60% 5%; }
-  .comments__list .comments__item--6 {
-    background-image: url("../images/content/photo-reviews/comment6.jpg");
-    background-position: 70% 0%; }
-  .comments__list .comments__item--7 {
-    background-image: url("../images/content/photo-reviews/comment7.jpg");
-    background-position: 30% 0%; }
-  .comments__list .comments__item--8 {
-    background-image: url("../images/content/photo-reviews/comment8.jpg");
-    background-position: 30% 0%; }
 
 .switcher {
   position: fixed;
@@ -343,8 +333,8 @@ h1, h2, h3, h4, h5, h6 {
 .switcher__item-link {
   position: relative;
   display: block;
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   -webkit-border-radius: 50%;
           border-radius: 50%;
   background-color: white; }
@@ -354,8 +344,8 @@ h1, h2, h3, h4, h5, h6 {
 .switcher__item-link::before {
   content: "";
   position: absolute;
-  top: -7px;
-  left: -7px;
+  top: 50%;
+  left: 50%;
   display: block;
   width: 16px;
   height: 16px;
@@ -365,7 +355,10 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   -webkit-transition: .4s;
   -o-transition: .4s;
-  transition: .4s; }
+  transition: .4s;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
 
 .switcher__item--activ .switcher__item-link::before {
   opacity: 1; }
