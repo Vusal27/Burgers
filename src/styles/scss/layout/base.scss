@@ -57,6 +57,10 @@ h1,h2,h3,h4,h5,h6 {
     &--color-orange {
         background-color: #e34e29;
     }
+    &--comments {
+        background-color: $sgrey;
+        align-self: flex-start;            
+    }
 }
 .title {
     font-size: 72px;
