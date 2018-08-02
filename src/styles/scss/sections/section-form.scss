@@ -1,0 +1,107 @@
+.order {
+    background-image: url('../images/bg/order-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.form {
+    display: flex;
+    &__part {
+        width: 50%;
+        margin-left: 20px;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    &__title {
+        font-size: 14px;
+        color: white;
+        margin-bottom: 5px;
+    }
+    &__row {
+        margin-bottom: 15px;
+        display: flex;
+    }
+    &__input {
+        border: initial;
+        padding: 5px 20px;
+        background-color: white;
+        border-radius: 5px; 
+        width: 100%;
+        &--comment {
+            height: 90px;
+        }
+    }
+    &__block {
+        flex: 1;
+        margin-left: 20px;
+        &:first-child {
+            margin-left: 0;
+        }
+        &--radio {
+            display: flex;
+            flex: 0.5;
+            position: relative;
+            margin-left: -50px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+        &--checkbox {
+            display: flex;
+            position: relative;
+        }
+    }
+    &__radio-fake {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15px;
+        height: 15px;
+        background-color: white;
+        border-radius: 50%;
+        margin: 0 5px;
+        &::before {
+            content: "";
+            display: block;
+            width: 0px;
+            height: 0px;
+            border-radius: 50%;
+            background-color: #e34e29;
+            transition: .3s;
+        }
+    }
+    &__radio {
+        position: absolute;
+        left: -5000px;
+    }
+    &__radio:checked + .form__radio-fake::before {
+        width: 7px;
+        height: 7px;
+    }
+    &__checkbox-fake {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15px;
+        height: 15px;
+        background-color: white;
+        margin: 0 5px;
+        &::before {
+            content: "";
+            display: block;
+            width: 0px;
+            height: 0px;
+            border-radius: 50%;
+            background-image: url('../images/svgicons/check.svg');
+            transition: .3s;
+        }
+    }
+    &__checkbox {
+        position: absolute;
+        left: -5000px;
+    }
+    &__checkbox:checked + .form__checkbox-fake::before {
+        width: 15px;
+        height: 15px;
+    }
+}

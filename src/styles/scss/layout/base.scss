@@ -22,6 +22,9 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
     font-weight: normal;
 }
+input {
+    box-sizing: border-box;
+}
 .wrapper {
     position: relative;
     height: 100%;
@@ -54,12 +57,16 @@ h1,h2,h3,h4,h5,h6 {
     color: white;
     border: none;
     cursor: pointer;
-    &--color-orange {
+    &_color-orange {
         background-color: #e34e29;
     }
     &--comments {
         background-color: $sgrey;
         align-self: flex-start;            
+    }
+    &_clean {
+        background-color: transparent;
+        text-transform: none;
     }
 }
 .title {
@@ -73,5 +80,9 @@ h1,h2,h3,h4,h5,h6 {
     }
     &_margin-button {
         margin-bottom: 15px;
+    }
+    &_order {
+        text-align: center;
+        margin-bottom: 45px;
     }
 }
