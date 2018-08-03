@@ -93,6 +93,12 @@ input {
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between; }
+  .container_footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row; }
 
 .section {
   height: 100vh;
@@ -160,12 +166,13 @@ input {
     margin-bottom: 30px; }
     .hero__down-link {
       display: block;
-      width: 45px;
-      height: 25px;
-      background-image: url("../images/content/intro/Strelka1.png");
-      background-repeat: no-repeat;
+      width: 30px;
+      height: 15px;
       margin: 0 auto;
       cursor: pointer; }
+    .hero__down-svg {
+      width: 30px;
+      height: 15px; }
 
 .header {
   display: -webkit-box;
@@ -466,7 +473,78 @@ input {
   background-image: url("../images/bg/map-bg.jpg");
   -webkit-background-size: cover;
           background-size: cover;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  position: relative; }
+  .map__marker {
+    display: block;
+    width: 50px;
+    height: 60px; }
+  .map__marker-svg {
+    width: 50px;
+    height: 60px; }
+
+.footer {
+  position: absolute;
+  bottom: 0px;
+  background-image: url("../images/bg/footer-bg.jpg");
+  height: 60px;
+  width: 100%; }
+
+.contacts {
+  width: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+  .contacts__phone-icon {
+    height: 12px;
+    width: 15px; }
+  .contacts__number {
+    color: #e34e29;
+    font-size: 15px;
+    font-weight: bold; }
+  .contacts__address {
+    color: white;
+    font-size: 14px; }
+
+.social {
+  width: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .social__list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  .social__item {
+    padding: 0 10px; }
+  .social__icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: #575757; }
+  .social__link {
+    display: block; }
+    .social__link :hover {
+      fill: white; }
 
 .switcher {
   position: fixed;
