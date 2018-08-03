@@ -43,6 +43,9 @@ input {
     &--space-between {
         justify-content: space-between;
     }
+    &_footer {
+        flex-direction: row;
+    }
 }
 .section {
     height: 100vh;

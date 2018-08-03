@@ -41,7 +41,7 @@
                           </div>
                         <div class="hero__down">
                             <a href="#" class="hero__down-link">
-                                <svg class="logo-svg">
+                                <svg class="hero__down-svg">
                                     <use xlink:href="./images/svgicons/sprite.svg#scroll"></use>
                                 </svg>
                             </a>
@@ -54,7 +54,9 @@
                         <ul class="we__list">
                             <li class="we__item">
                                 <div class="we__picture">
-                                    <img class="we__img" alt="we__img" src="images/content/photo-we/meat1.png">
+                                    <svg class="we-img">
+                                        <use xlink:href="./images/svgicons/sprite.svg#meat"></use>
+                                    </svg>
                                 </div>
                                 <div class="we__desc">
                                     <h3 class="we__name">100% свежее мясо</h3>
@@ -63,14 +65,18 @@
                             </li>
                             <li class="we__item">
                                 <div class="we__picture">
-                                    <img class="we__img we__img--hand" alt="we__img " src="images/content/photo-we/hand made1.png">
+                                    <svg class="we-img">
+                                        <use xlink:href="./images/svgicons/sprite.svg#hand"></use>
+                                    </svg>
                                 </div>
                                 <h3 class="we__name">Ручная сборка</h3>
                                 <p class="we__text">Уже сентябрь.  Осень тихонько вступает в свои права. Деревья, кусты, трава – все меняет свое зеленое одеяние, переодеваясь в пестрые наряды.</p>
                             </li>
                             <li class="we__item">
                                 <div class="we__picture">
-                                    <img class="we__img" alt="we__img" src="images/content/photo-we/natural1.png">
+                                    <svg class="we-img">
+                                        <use xlink:href="./images/svgicons/sprite.svg#natural"></use>
+                                    </svg>  
                                 </div>
                                 <h3 class="we__name we__name--natural">Натуральные ингредиенты</h3>
                                 <p class="we__text">Уже сентябрь.  Осень тихонько вступает в свои права. Деревья, кусты, трава – все меняет свое зеленое одеяние.</p>
@@ -217,9 +223,72 @@
                     </div>
                 </section>
                 <section class="section map">
-                    <svg class="logo-svg">
-                        <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
-                    </svg>
+                    <a href="#" class="map__marker">
+                        <svg class="map__marker-svg">
+                            <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
+                        </svg>
+                    </a>
+                    <a href="#" class="map__marker">
+                        <svg class="map__marker-svg">
+                            <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
+                        </svg>
+                    </a>
+                    <a href="#" class="map__marker">
+                        <svg class="map__marker-svg">
+                            <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
+                        </svg>
+                    </a>
+                    <a href="#" class="map__marker">
+                        <svg class="map__marker-svg">
+                            <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
+                        </svg>
+                    </a>
+                    <footer class="footer">
+                        <div class="container container_footer">
+                            <div class="contacts">
+                                <div class="contacts__address">Санкт-Петербург,ул.Бабушкина,д.12/1,15</div>    
+                                <a href="tel:+78123771377" class="contacts__number">
+                                    <svg class="contacts__phone-icon">
+                                        <use xlink:href="./images/svgicons/sprite.svg#phone"></use>
+                                    </svg>
+                                    +7(812)377-13-77
+                                </a>
+                            </div>
+                            <div class="social">
+                                <ul class="social__list">
+                                    <li class="social__item">
+                                        <a href="#" class="social__link">
+                                            <svg class="social__icon">
+                                                <use xlink:href="./images/svgicons/sprite.svg#vk"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link">
+                                            <svg class="social__icon">
+                                                <use xlink:href="./images/svgicons/sprite.svg#fb"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link">
+                                            <svg class="social__icon">
+                                                <use xlink:href="./images/svgicons/sprite.svg#twitter"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link">
+                                            <svg class="social__icon">
+                                                <use xlink:href="./images/svgicons/sprite.svg#inst"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </footer>
                 </section>
                 <ul class="switcher">
                     <li class="switcher__item switcher__item--activ">
@@ -251,9 +320,6 @@
                     </li>
                 </ul>
             </div>
-            <footer class="footer">
-
-            </footer>
         </main>
     </body>
 </html>

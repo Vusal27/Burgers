@@ -2,4 +2,64 @@
     background-image: url('../images/bg/map-bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    position: relative;
+    &__marker {
+        display: block;
+        width: 50px;
+        height: 60px;
+    }
+    &__marker-svg {
+        width: 50px;
+        height: 60px;
+    }
+}
+.footer {
+    position: absolute;
+    bottom: 0px;
+    background-image: url('../images/bg/footer-bg.jpg');
+    height: 60px;
+    width: 100%;
+}
+.contacts {
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    &__phone-icon {
+        height: 12px;
+        width: 15px;
+    }
+    &__number {
+        color: #e34e29;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    &__address {
+        color: white;
+        font-size: 14px;
+    }
+}
+.social {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    &__list {
+        display: flex;
+    }
+    &__item {
+        padding: 0 10px;
+    }
+    &__icon {
+        display: block;
+        width: 20px;
+        height: 20px;
+        fill: #575757;
+    }
+    &__link {
+        display: block;
+        :hover {
+            fill: white;
+        }
+    }
 }

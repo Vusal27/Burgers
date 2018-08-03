@@ -22,12 +22,14 @@
         
         &-link {
             display: block;
-            width: 45px;
-            height: 25px;
-            background-image: url('../images/content/intro/Strelka1.png');
-            background-repeat: no-repeat;
+            width: 30px;
+            height: 15px;
             margin: 0 auto;
             cursor: pointer;
+        }
+        &-svg {
+            width: 30px;
+            height: 15px;
         }
     }
 }
