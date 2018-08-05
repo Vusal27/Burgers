@@ -5,11 +5,23 @@
         justify-content: space-around;
         align-items: center;
         margin-top: -60px;
+        @include tablet() {
+            flex-flow: column;
+            justify-content: center;
+        }
         &-desc {
             width: 50%;
+            @include tablet() {
+                text-align: center;
+            }
         }
         &-img {
             width: 50%;
+        }
+        &-images {
+            @include tablet() {
+                width: 100%;
+            }
         }
         &-text {
             font-family: 'lifehack', Helvetica, sans-serif;
@@ -40,6 +52,12 @@
 }
 .logo {
     display: block;
+}
+.nav {
+    @include tablet() {
+        height: 0;
+        overflow: hidden;
+    }
 }
 .nav__list {
     display: flex;

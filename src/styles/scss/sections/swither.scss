@@ -2,6 +2,14 @@
     position: fixed;
     top: 70px;
     right: 60px;
+    @include tablet {
+        height: 0;
+        overflow: hidden;
+    }
+    @include phone {
+        height: 0;
+        overflow: hidden;
+    }
 }
 .switcher__item {
     margin-bottom: 16px;

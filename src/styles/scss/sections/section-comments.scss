@@ -16,6 +16,11 @@
         color: white;
         transition: .5s;
         background-size: cover;
+        @include tablet() {
+            width: 50%;
+            height: 25%;
+            background-position: center;
+        }
         &::before {
             content: "";
             position: absolute;

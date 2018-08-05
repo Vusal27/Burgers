@@ -20,7 +20,8 @@
     "gulp-gh-pages": "^0.5.4",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
-    "gulp-sass": "^4.0.1"
+    "gulp-sass": "^4.0.1",
+    "postcss-pxtorem": "^4.0.1"
   },
   "dependencies": {
     "normalize.css": "^8.0.0"

@@ -16,6 +16,9 @@
         &--active {
             .menu__content {
                 width: 480px;
+                @include tablet() {
+                    width: 400px;
+                }
             }
             .menu__title {
                 color: $orange;
@@ -51,5 +54,8 @@
         padding: 40px;
         background-color: #2f3133;
         opacity: 0.7;
+        @include tablet() {
+            min-width: 320px;
+        }
     }
 }

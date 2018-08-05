@@ -5,9 +5,16 @@
 }
 .form {
     display: flex;
+    @include tablet() {
+        flex-flow: column;
+        align-items: center;
+    }
     &__part {
         width: 50%;
         margin-left: 20px;
+        @include tablet() {
+            margin-left: 0;
+        }
         &:first-child {
             margin-left: 0;
         }
