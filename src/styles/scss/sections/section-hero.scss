@@ -14,9 +14,15 @@
             @include tablet() {
                 text-align: center;
             }
+            @include phone() {
+                width: 90%;
+            }
         }
         &-img {
             width: 50%;
+            @include phone() {
+                width: 90%;
+            }
         }
         &-images {
             @include tablet() {
@@ -54,6 +60,49 @@
     display: block;
 }
 .nav {
+    &__burger {
+        display: none;
+        width: 28px;
+        height: 5px;
+        //margin: 0 20px;
+        background-color: white;
+        border-radius: 5px;
+        position: relative;
+        @include tablet() {
+            display: block;
+        }
+        @include phone() {
+            display: block;
+        }
+        &-link {
+            margin: 0 25px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &::before {
+            content: "";
+            display: block;
+            width: 28px;
+            height: 5px;
+            background-color: white;
+            border-radius: 5px;
+            position: absolute;
+            top: -10px;
+
+        }
+        &::after {
+            content: "";
+            display: block;
+            width: 28px;
+            height: 5px;
+            background-color: white;
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+        }
+    }
     @include tablet() {
         height: 0;
         overflow: hidden;

@@ -3,6 +3,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    @include phone() {
+        background-position: center;
+    }
     &__marker {
         display: block;
         width: 50px;
@@ -43,12 +46,20 @@
     background-image: url('../images/bg/footer-bg.jpg');
     height: 60px;
     width: 100%;
+    @include phone() {
+        height: 115px;
+    }
 }
 .contacts {
     width: 50%;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
+    @include phone() {
+        justify-content: center;
+        height: 50%;
+        margin-bottom: 10px;
+    }
     &__phone-icon {
         height: 12px;
         width: 15px;
@@ -57,10 +68,16 @@
         color: #e34e29;
         font-size: 15px;
         font-weight: bold;
+        @include phone() {
+            text-align: center;
+        }
     }
     &__address {
         color: white;
         font-size: 14px;
+        @include phone() {
+            margin-bottom: 10px;
+        }
     }
 }
 .social {
@@ -68,6 +85,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    @include phone() {
+        justify-content: center;
+    }
     &__list {
         display: flex;
     }
