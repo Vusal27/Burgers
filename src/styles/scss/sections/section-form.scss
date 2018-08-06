@@ -35,12 +35,13 @@
     }
     &__input {
         border: initial;
-        padding: 5px 20px;
+        padding: 5px 16px;
         background-color: white;
         border-radius: 5px; 
         width: 100%;
         &--comment {
             height: 90px;
+            width: 93%;
         }
     }
     &__block {
