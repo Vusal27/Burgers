@@ -21,14 +21,29 @@
             width: 100%;
         }
     }
+    &__wrap {
+        padding: 107px 126px;
+        @include tablet() {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+        @include phone() {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+    }
     &__content {
         height: 0;
         overflow: hidden;
         transition: 1s;
-        display: flex;
-        color: white;
-        @include tablet() {
-            flex-flow: column;
+        &-wrap {
+            display: flex;
+            color: white;
+            @include tablet() {
+                flex-flow: column;
+            }
         }
     }
     &__list {

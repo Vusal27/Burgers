@@ -18,26 +18,22 @@
         @include phone() {
             width: 95%;
             flex-flow: row;
+            margin-bottom: 10px;
         }
     }
     &__picture {
         margin-bottom: 20px;
         @include phone() {
-            flex: 1;
-            display: flex;
-            width: 25%;
         }
     }
     &__img {
         width: 120px;
         height: 120px;
-        @include tablet() {
-            width: 100%;
-        }
     }
     &__desc {
         @include phone() {
-            flex: 3;
+            text-align: left;
+            padding-left: 20px;
         }
     }
     &__name {
@@ -53,6 +49,9 @@
         line-height: 1.42;
         @include tablet() {
             padding: 0 12px;
+        }
+        @include phone() {
+            padding: 0;
         }
     }
 }

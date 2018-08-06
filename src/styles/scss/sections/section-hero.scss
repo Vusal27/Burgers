@@ -12,6 +12,7 @@
         &-desc {
             width: 50%;
             @include tablet() {
+                width: 75%;
                 text-align: center;
             }
             @include phone() {
@@ -20,6 +21,9 @@
         }
         &-img {
             width: 50%;
+            @include tablet() {
+                width: 75%;
+            }
             @include phone() {
                 width: 90%;
             }
@@ -36,13 +40,12 @@
         }
     }
     &__down {
+        width: 30px;
+        height: 15px;
+        margin: 0 auto;
         margin-bottom: 30px;
-        
         &-link {
             display: block;
-            width: 30px;
-            height: 15px;
-            margin: 0 auto;
             cursor: pointer;
         }
         &-svg {

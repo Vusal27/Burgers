@@ -14,7 +14,6 @@
         background-position-x: 35%;
         filter: grayscale(100%);
         color: white;
-        transition: .5s;
         background-size: cover;
         @include tablet() {
             width: 50%;
@@ -46,17 +45,26 @@
             opacity: 0;
             display: flex;
             flex-direction: column;
+            @include tablet() {
+                margin-top: 25px;
+            }
         }
         &-title {
             font-family: 'gagalin', Helvetica, sans-serif;
             font-size: 14px;
             margin-bottom: 25px;
+            @include phone() {
+                align-self: center;
+            } 
         }
         &-text {
             font-size: 14px;
             font-weight: 300;
             line-height: 1.7;
-            margin-bottom: 25px;          
+            margin-bottom: 25px;
+            @include phone() {
+                display: none;
+            }         
         }
     }
 }

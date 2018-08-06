@@ -79,10 +79,14 @@ input {
     cursor: pointer;
     &_color-orange {
         background-color: #e34e29;
+        margin-left: 20px;
     }
     &--comments {
         background-color: $sgrey;
-        align-self: flex-start;            
+        align-self: flex-start;  
+        @include phone() {
+            align-self: center;
+        }          
     }
     &_clean {
         background-color: transparent;
@@ -115,14 +119,6 @@ input {
         left: 100px;
         @include tablet() {
             left: 10px;
-        }
-    }
-    &_team {
-        position: absolute;
-        top: 90px;
-        left: 140px;
-        @include tablet() {
-            position: initial;
         }
     }
 }

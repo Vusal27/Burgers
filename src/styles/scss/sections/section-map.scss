@@ -55,6 +55,7 @@
     display: flex;
     flex-flow: column;
     justify-content: space-around;
+    white-space: nowrap;
     @include phone() {
         justify-content: center;
         height: 50%;
