@@ -1,0 +1,43 @@
+.nav__burger {
+    width: 28px;
+    height: 5px;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+    &-link {
+        display: none;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 20px;
+        right: 30px;
+        z-index: 10;
+        @include tablet() {
+            display: flex;
+        }
+        @include phone() {
+            display: flex;
+        }
+    }
+    &::before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 5px;
+        background-color: white;
+        border-radius: 5px;
+        position: absolute;
+        top: -10px;
+    }
+    &::after {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 5px;
+        background-color: white;
+        border-radius: 5px;
+        position: absolute;
+        top: 10px;
+    }
+}

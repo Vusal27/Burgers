@@ -1,0 +1,54 @@
+.navadapt, .navadapt__wrap {
+    background-color: #2e3133;
+    opacity: 0.9;
+    width: calc(100% - 20px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    &__wrap {
+        position: relative;
+    }
+    &__logo {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        z-index: 7;
+    }
+}
+.navadapt__list {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    height: 85%;
+    width: 150px;
+    margin: auto 0;
+    .navadapt__item {
+        position: relative;
+        .navadapt__link {
+            color: white;
+            display: block;
+            font-size: 17px;
+        }
+    }
+}
+.navadapt__item::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -30px;
+    right: 50%;
+}
+.navadapt__item:last-child:after {
+    content: none;
+}

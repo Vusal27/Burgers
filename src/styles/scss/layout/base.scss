@@ -79,7 +79,7 @@ input {
     cursor: pointer;
     &_color-orange {
         background-color: #e34e29;
-        margin-left: 20px;
+        margin: 0 60px 0 20px;
     }
     &--comments {
         background-color: $sgrey;
