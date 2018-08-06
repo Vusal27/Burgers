@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
     :root {
       font-size: 13px; } }
 
-input {
+input, textarea {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
@@ -732,14 +732,13 @@ input {
     display: flex; }
   .form__input {
     border: initial;
-    padding: 5px 1rem;
+    padding: 5px 1.25rem;
     background-color: white;
     -webkit-border-radius: 5px;
             border-radius: 5px;
     width: 100%; }
     .form__input--comment {
-      height: 5.625rem;
-      width: 93%; }
+      height: 5.625rem; }
   .form__block {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
