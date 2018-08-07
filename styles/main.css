@@ -230,10 +230,15 @@ input, textarea {
       font-family: 'lifehack', Helvetica, sans-serif;
       color: white;
       font-size: 4.0625rem; }
+      @media (max-width: 480px) {
+        .hero__content-text {
+          font-size: 3.125rem; } }
   .hero__down {
     width: 1.875rem;
     height: 0.9375rem;
-    margin: 0 auto;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center;
     margin-bottom: 1.875rem; }
     .hero__down-link {
       display: block;
@@ -340,7 +345,7 @@ input, textarea {
         -webkit-flex-flow: row;
             -ms-flex-flow: row;
                 flex-flow: row;
-        margin-bottom: 0.625rem; } }
+        margin-bottom: 2rem; } }
   .we__picture {
     margin-bottom: 1.25rem; }
   .we__img {
@@ -413,7 +418,7 @@ input, textarea {
       .team__block {
         width: 100%; } }
   .team__wrap {
-    padding: 6.6875rem 7.875rem; }
+    width: 70%; }
     @media (max-width: 768px) {
       .team__wrap {
         display: -webkit-box;
@@ -491,8 +496,7 @@ input, textarea {
       content: "";
       display: block;
       border: 6px solid transparent;
-      border-top: 0.5rem solid #f7b23b;
-      width: 2px;
+      border-top: 6px solid #f7b23b;
       position: absolute;
       top: 0.5rem;
       left: -1.25rem;
@@ -667,6 +671,14 @@ input, textarea {
       @media (max-width: 768px) {
         .comments__list .comments__item-content {
           margin-top: 1.5625rem; } }
+      @media (max-width: 480px) {
+        .comments__list .comments__item-content {
+          margin-top: 0;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          height: 100%; } }
     .comments__list .comments__item-title {
       font-family: 'gagalin', Helvetica, sans-serif;
       font-size: 0.875rem;
@@ -675,7 +687,8 @@ input, textarea {
         .comments__list .comments__item-title {
           -webkit-align-self: center;
               -ms-flex-item-align: center;
-                  align-self: center; } }
+                  align-self: center;
+          font-size: 1.25rem; } }
     .comments__list .comments__item-text {
       font-size: 0.875rem;
       font-weight: 300;
@@ -882,6 +895,11 @@ input, textarea {
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      width: 100%;
       height: 50%;
       margin-bottom: 0.625rem; } }
   .contacts__phone-icon {
@@ -891,9 +909,6 @@ input, textarea {
     color: #e34e29;
     font-size: 0.9375rem;
     font-weight: bold; }
-    @media (max-width: 480px) {
-      .contacts__number {
-        text-align: center; } }
   .contacts__address {
     color: white;
     font-size: 0.875rem; }
