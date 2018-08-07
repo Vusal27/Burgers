@@ -37,12 +37,15 @@
             font-family: 'lifehack', Helvetica, sans-serif;
             color: white;
             font-size: 65px;
+            @include phone() {
+                font-size: 50px;
+            }
         }
     }
     &__down {
         width: 30px;
         height: 15px;
-        margin: 0 auto;
+        align-self: center;
         margin-bottom: 30px;
         &-link {
             display: block;

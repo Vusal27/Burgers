@@ -22,7 +22,7 @@
         }
     }
     &__wrap {
-        padding: 107px 126px;
+        width: 70%;
         @include tablet() {
             display: flex;
             flex-flow: column;
@@ -82,8 +82,7 @@
             content: "";
             display: block;
             border: 6px solid transparent;
-            border-top: 8px solid $orange;
-            width: 2px;
+            border-top: 6px solid $orange;
             position: absolute;
             top: 8px;
             left: -20px;
