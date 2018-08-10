@@ -1282,6 +1282,11 @@ input, textarea {
   -webkit-transition: 1s;
   -o-transition: 1s;
   transition: 1s; }
+  .navadapt_active, .navadapt__wrap_active {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
   .navadapt__wrap, .navadapt__wrap__wrap {
     display: -webkit-box;
     display: -webkit-flex;
