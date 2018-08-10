@@ -99,6 +99,9 @@
         display: flex;
         flex-flow: column;
         justify-content: space-around;
+        @include tablet() {
+            margin-left: 0;
+        }
         &-title {
             font-size: 14px;
             font-weight: bold;

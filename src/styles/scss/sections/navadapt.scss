@@ -7,7 +7,9 @@
     left: 0;
     display: none;
     justify-content: center;
+    transition: 1s;
     &__wrap {
+        display: flex;
         position: relative;
     }
     &__logo {
@@ -22,19 +24,16 @@
 .navadapt__list {
     display: flex;
     flex-flow: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     text-transform: uppercase;
     flex-wrap: wrap;
-    height: 85%;
-    width: 150px;
-    margin: auto 0;
     .navadapt__item {
         position: relative;
         .navadapt__link {
             color: white;
             display: block;
-            font-size: 17px;
+            font-size: 24px;
         }
     }
 }
@@ -45,9 +44,8 @@
     height: 5px;
     background-color: white;
     border-radius: 50%;
-    position: absolute;
-    bottom: -30px;
-    right: 50%;
+    margin: 30px 50%;
+    transform: translate(-50%, 0px);
 }
 .navadapt__item:last-child:after {
     content: none;

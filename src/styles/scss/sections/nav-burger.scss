@@ -29,6 +29,7 @@
         border-radius: 5px;
         position: absolute;
         top: -10px;
+        transition: 0.5s;
     }
     &::after {
         content: "";
@@ -39,5 +40,19 @@
         border-radius: 5px;
         position: absolute;
         top: 10px;
+        transition: 0.5s;
+    }
+}
+.nav__burger-link--active {
+    .nav__burger {
+        background: transparent;
+    }
+    .nav__burger::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+    .nav__burger::after {
+        top: 0;
+        transform: rotate(-45deg);
     }
 }
