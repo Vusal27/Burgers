@@ -8,6 +8,9 @@
     display: none;
     justify-content: center;
     transition: 1s;
+    &_active {
+        display: flex;
+    }
     &__wrap {
         display: flex;
         position: relative;
