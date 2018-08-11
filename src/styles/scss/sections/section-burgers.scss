@@ -9,20 +9,26 @@
 }
 .slide {
     display: flex;
-    padding: 45px 0;
+    align-items: center;
+    padding: 0 10px;
     @include tablet() {
         flex-direction: column;
         align-items: center;
-        padding-bottom: 0;
     }
-    &__pisture {
+    &__picture {
+    padding: 45px 0;
     flex: 1;
     @include tablet() {
+        padding-bottom: 0;
         flex: auto;
+        text-align: center;
     }
     }
     &__img {
-        max-width: 95%;
+        max-width: 100%;
+        @include tablet() {
+            max-width: 90%;
+        }
     }
     &__desc {
         flex: 1;
@@ -54,9 +60,15 @@
     }
     &__cost {
         font-size: 70px;
+        @include phone() {
+            font-size: 55px;
+        }
     }
     &__currency {
         font-size: 30px;
+    }
+    &__btn {
+        margin-left: 25px;
     }
 }
 .composition, .kkal {
@@ -129,8 +141,6 @@
     }
 }
 .kkal__icon {
-    width: 80px;
-    height: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,19 +148,22 @@
     position: relative;
     .kkal__svg {
         opacity: 0.8;
+        margin-bottom: 5px;
     }
     .kkal__sum, .kkal__unit {
         font-family: 'gagalin', Helvetica, sans-serif;
         color: white;
         opacity: 0.8;
-        position: absolute;
     }
     .kkal__sum {
-        top: 40px;
+        top: 30px;
         font-size: 22px;
+        position: absolute;
+        @include tablet() {
+            top: 24px;
+        }
     }
     .kkal__unit {
-        bottom: -10px;
         font-size: 15px;
     }
 }
@@ -169,10 +182,10 @@
     cursor: pointer;
 }
 .slider__arrowprew {
-    background: url('../images/content/intro/strelka33.png');
+    background: url('../images/content/intro/Strelka33.png');
     background-repeat: no-repeat;
 }
 .slider__arrownext {
-    background: url('../images/content/intro/strelka22.png');
+    background: url('../images/content/intro/Strelka22.png');
     background-repeat: no-repeat;
 }

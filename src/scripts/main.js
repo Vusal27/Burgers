@@ -1,16 +1,12 @@
 var navburlink = document.querySelector('.nav__burger-link');
 var navadapt = document.querySelector('.navadapt');
-navburlink.addEventListener('click', function() {
-    navburlink.classList.toggle("nav__burger-link--active");
-    navadapt.classList.toggle("navadapt_active");
-});
-
-
+navburlink.addEventListener('click', toggleClass);
 
 var navadaptlink = document.querySelectorAll ("a.navadapt__link");
-for (var i=0; i<navadaptlink.length; i++){
-	navadaptlink[i].onclick = function() {
-        navburlink.classList.toggle("nav__burger-link--active");
-        navadapt.classList.toggle("navadapt_active");
-    };
-};
+for (var link of navadaptlink){
+	link.addEventListener('click', toggleClass);
+}
+function toggleClass() {
+    navburlink.classList.toggle("nav__burger-link--active");
+    navadapt.classList.toggle("navadapt_active");
+}

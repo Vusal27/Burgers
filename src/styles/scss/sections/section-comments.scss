@@ -47,6 +47,7 @@
             flex-direction: column;
             @include tablet() {
                 margin-top: 25px;
+                text-align: center;
             }
             @include phone() {
                 margin-top: 0;

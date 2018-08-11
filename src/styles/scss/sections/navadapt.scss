@@ -8,6 +8,7 @@
     display: none;
     justify-content: center;
     transition: 1s;
+    z-index: 400;
     &_active {
         display: flex;
     }
@@ -21,7 +22,7 @@
         position: absolute;
         top: 10px;
         left: 20px;
-        z-index: 7;
+        z-index: 500;
     }
 }
 .navadapt__list {

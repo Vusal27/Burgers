@@ -84,12 +84,26 @@ input, textarea {
         background-color: #e34e29;
         margin: 0 60px 0 20px;
     }
+    &_color--orange {
+        background-color: #e34e29;
+    }
     &--comments {
         background-color: $sgrey;
         align-self: flex-start;  
-        @include phone() {
+        @include tablet() {
             align-self: center;
         }          
+    }
+    &--desctop {
+        @include phone() {
+            display: none;
+        }
+    }
+    &--phonesize {
+        display: none;
+        @include phone() {
+            display: block;
+        }
     }
     &_clean {
         background-color: transparent;
