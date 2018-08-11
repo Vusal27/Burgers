@@ -146,16 +146,26 @@ input, textarea {
   .button_color-orange {
     background-color: #e34e29;
     margin: 0 3.75rem 0 1.25rem; }
+  .button_color--orange {
+    background-color: #e34e29; }
   .button--comments {
     background-color: #2e3133;
     -webkit-align-self: flex-start;
         -ms-flex-item-align: start;
             align-self: flex-start; }
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       .button--comments {
         -webkit-align-self: center;
             -ms-flex-item-align: center;
                 align-self: center; } }
+  @media (max-width: 480px) {
+    .button--desctop {
+      display: none; } }
+  .button--phonesize {
+    display: none; }
+    @media (max-width: 480px) {
+      .button--phonesize {
+        display: block; } }
   .button_clean {
     background-color: transparent;
     text-transform: none; }
@@ -397,7 +407,11 @@ input, textarea {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 2.8125rem 0; }
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0.625rem; }
   @media (max-width: 768px) {
     .slide {
       -webkit-box-orient: vertical;
@@ -408,21 +422,26 @@ input, textarea {
       -webkit-box-align: center;
       -webkit-align-items: center;
           -ms-flex-align: center;
-              align-items: center;
-      padding-bottom: 0; } }
-  .slide__pisture {
+              align-items: center; } }
+  .slide__picture {
+    padding: 2.8125rem 0;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1; }
     @media (max-width: 768px) {
-      .slide__pisture {
+      .slide__picture {
+        padding-bottom: 0;
         -webkit-box-flex: 1;
         -webkit-flex: auto;
             -ms-flex: auto;
-                flex: auto; } }
+                flex: auto;
+        text-align: center; } }
   .slide__img {
-    max-width: 95%; }
+    max-width: 100%; }
+    @media (max-width: 768px) {
+      .slide__img {
+        max-width: 90%; } }
   .slide__desc {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -464,8 +483,13 @@ input, textarea {
     margin-bottom: -0.625rem; }
   .slide__cost {
     font-size: 4.375rem; }
+    @media (max-width: 480px) {
+      .slide__cost {
+        font-size: 3.4375rem; } }
   .slide__currency {
     font-size: 1.875rem; }
+  .slide__btn {
+    margin-left: 1.5625rem; }
 
 .composition, .kkal {
   position: absolute;
@@ -571,8 +595,6 @@ input, textarea {
       left: auto; } }
 
 .kkal__icon {
-  width: 5rem;
-  height: 5rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -592,17 +614,20 @@ input, textarea {
           justify-content: center;
   position: relative; }
   .kkal__icon .kkal__svg {
-    opacity: 0.8; }
+    opacity: 0.8;
+    margin-bottom: 5px; }
   .kkal__icon .kkal__sum, .kkal__icon .kkal__unit {
     font-family: 'gagalin', Helvetica, sans-serif;
     color: white;
-    opacity: 0.8;
-    position: absolute; }
+    opacity: 0.8; }
   .kkal__icon .kkal__sum {
-    top: 2.5rem;
-    font-size: 1.375rem; }
+    top: 1.875rem;
+    font-size: 1.375rem;
+    position: absolute; }
+    @media (max-width: 768px) {
+      .kkal__icon .kkal__sum {
+        top: 1.5rem; } }
   .kkal__icon .kkal__unit {
-    bottom: -0.625rem;
     font-size: 0.9375rem; }
 
 .slider__arrows {
@@ -626,11 +651,11 @@ input, textarea {
   cursor: pointer; }
 
 .slider__arrowprew {
-  background: url("../images/content/intro/strelka33.png");
+  background: url("../images/content/intro/Strelka33.png");
   background-repeat: no-repeat; }
 
 .slider__arrownext {
-  background: url("../images/content/intro/strelka22.png");
+  background: url("../images/content/intro/Strelka22.png");
   background-repeat: no-repeat; }
 
 .team {
@@ -865,7 +890,7 @@ input, textarea {
     padding: 2.5rem;
     padding-bottom: 0;
     background-color: #2f3133;
-    opacity: 0.7; }
+    opacity: 0.9; }
     @media (max-width: 768px) {
       .menu__desc {
         min-width: 20rem; } }
@@ -934,7 +959,8 @@ input, textarea {
               flex-direction: column; }
       @media (max-width: 768px) {
         .comments__list .comments__item-content {
-          margin-top: 1.5625rem; } }
+          margin-top: 1.5625rem;
+          text-align: center; } }
       @media (max-width: 480px) {
         .comments__list .comments__item-content {
           margin-top: 0;
@@ -1075,8 +1101,7 @@ input, textarea {
     height: 0.9375rem;
     background-color: white;
     -webkit-border-radius: 50%;
-            border-radius: 50%;
-    margin: 0 5px; }
+            border-radius: 50%; }
     .form__radio-fake::before {
       content: "";
       display: block;
@@ -1094,6 +1119,36 @@ input, textarea {
   .form__radio:checked + .form__radio-fake::before {
     width: 0.4375rem;
     height: 0.4375rem; }
+  .form__checkbox-fake {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 0.9375rem;
+    height: 0.9375rem;
+    background-color: white; }
+    .form__checkbox-fake::before {
+      content: "";
+      background-image: url("../images/svgicons/check.svg");
+      -webkit-background-size: contain;
+              background-size: contain;
+      background-repeat: no-repeat;
+      width: 0px;
+      height: 0px; }
+  .form__checkbox {
+    position: absolute;
+    left: -312.5rem; }
+  .form__checkbox:checked + .form__checkbox-fake::before {
+    width: 0.6875rem;
+    height: 0.6875rem; }
 
 .map {
   background-image: url("../images/bg/map-bg.jpg");
@@ -1281,7 +1336,8 @@ input, textarea {
           justify-content: center;
   -webkit-transition: 1s;
   -o-transition: 1s;
-  transition: 1s; }
+  transition: 1s;
+  z-index: 400; }
   .navadapt_active, .navadapt__wrap_active {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1299,7 +1355,7 @@ input, textarea {
     position: absolute;
     top: 0.625rem;
     left: 1.25rem;
-    z-index: 7; }
+    z-index: 500; }
 
 .navadapt__list {
   display: -webkit-box;
@@ -1367,7 +1423,7 @@ input, textarea {
     position: fixed;
     top: 1.25rem;
     right: 1.875rem;
-    z-index: 10; }
+    z-index: 500; }
     @media (max-width: 768px) {
       .nav__burger-link {
         display: -webkit-box;
