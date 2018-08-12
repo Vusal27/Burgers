@@ -3,6 +3,7 @@
 }
 .slider {
     position: relative;
+    padding: 0 32px;
     &__item {
         position: relative;
     }
@@ -10,7 +11,6 @@
 .slide {
     display: flex;
     align-items: center;
-    padding: 0 10px;
     @include tablet() {
         flex-direction: column;
         align-items: center;
@@ -170,8 +170,8 @@
 .slider__arrows {
     position: absolute;
     top: 50%;
-    left: -30px;
-    width: 110%;
+    left: 0px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
