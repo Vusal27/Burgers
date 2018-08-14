@@ -39,9 +39,11 @@
         overflow: hidden;
         transition: 1s;
         &-wrap {
+            height: 100px;
             display: flex;
             color: white;
             @include tablet() {
+                height: 135px;
                 flex-flow: column;
             }
         }
@@ -61,7 +63,7 @@
                     height: 150px;
                 }
             }
-            .team__name {
+            .team__link {
                 color: $orange;
                 &::before {
                     border-top: 0;
@@ -71,10 +73,8 @@
         }
     }
     &__link {
-        display: block;
+        display: inline-block;
         margin-bottom: 15px;
-    }
-    &__name {
         font-family: 'gagalin', sans-serif;
         color: white;
         position: relative;
@@ -84,7 +84,7 @@
             border: 6px solid transparent;
             border-top: 6px solid $orange;
             position: absolute;
-            top: 8px;
+            top: 5px;
             left: -20px;
             transition: 0.5s;
         }

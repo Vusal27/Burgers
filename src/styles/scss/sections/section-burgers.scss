@@ -159,9 +159,6 @@
         top: 30px;
         font-size: 22px;
         position: absolute;
-        @include tablet() {
-            top: 24px;
-        }
     }
     .kkal__unit {
         font-size: 15px;
