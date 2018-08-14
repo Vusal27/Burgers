@@ -625,9 +625,6 @@ input, textarea {
     top: 1.875rem;
     font-size: 1.375rem;
     position: absolute; }
-    @media (max-width: 768px) {
-      .kkal__icon .kkal__sum {
-        top: 1.5rem; } }
   .kkal__icon .kkal__unit {
     font-size: 0.9375rem; }
 
@@ -743,6 +740,7 @@ input, textarea {
     -o-transition: 1s;
     transition: 1s; }
     .team__content-wrap {
+      height: 6.25rem;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -750,6 +748,7 @@ input, textarea {
       color: white; }
       @media (max-width: 768px) {
         .team__content-wrap {
+          height: 8.4375rem;
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
           -webkit-flex-flow: column;
@@ -767,25 +766,24 @@ input, textarea {
       @media (max-width: 768px) {
         .team__item--active .team__content {
           height: 9.375rem; } }
-    .team__item--active .team__name {
+    .team__item--active .team__link {
       color: #f7b23b; }
-      .team__item--active .team__name::before {
+      .team__item--active .team__link::before {
         border-top: 0;
         border-bottom: 0.5rem solid orange; }
   .team__link {
-    display: block;
-    margin-bottom: 0.9375rem; }
-  .team__name {
+    display: inline-block;
+    margin-bottom: 0.9375rem;
     font-family: 'gagalin', sans-serif;
     color: white;
     position: relative; }
-    .team__name::before {
+    .team__link::before {
       content: "";
       display: block;
       border: 6px solid transparent;
       border-top: 6px solid #f7b23b;
       position: absolute;
-      top: 0.5rem;
+      top: 5px;
       left: -1.25rem;
       -webkit-transition: 0.5s;
       -o-transition: 0.5s;
@@ -1422,8 +1420,8 @@ input, textarea {
         -ms-flex-pack: center;
             justify-content: center;
     position: fixed;
-    top: 1.25rem;
-    right: 1.875rem;
+    top: 2rem;
+    right: 1.75rem;
     z-index: 500; }
     @media (max-width: 768px) {
       .nav__burger-link {
