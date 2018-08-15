@@ -400,7 +400,14 @@ input, textarea {
 
 .slider {
   position: relative;
-  padding: 0 2rem; }
+  padding: 0 2rem;
+  /*&__list {
+        display: flex;
+        width: 876px;
+        height: 373px;
+        position: relative;
+        overflow: hidden;
+    }*/ }
   .slider__item {
     position: relative; }
 
@@ -986,6 +993,73 @@ input, textarea {
       @media (max-width: 480px) {
         .comments__list .comments__item-text {
           display: none; } }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(76, 82, 91, 0.8);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 10000; }
+
+.overlaycontainer {
+  position: relative;
+  width: 25rem;
+  height: 13.125rem;
+  background-color: white;
+  color: black;
+  padding: 2rem 1.5rem;
+  -webkit-border-radius: 5px;
+          border-radius: 5px; }
+
+.overlaycontent {
+  line-height: 1.9;
+  font-size: 0.8125rem; }
+
+.comments__overlaytitle {
+  font-size: 0.875rem;
+  font-family: 'gagalin', Helvetica, sans-serif;
+  margin-bottom: 1.25rem; }
+
+.close {
+  color: #e34f27;
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 2rem;
+  /*::before {
+        content:"";
+        display: block;
+        width: 15px;
+        height: 3px;
+        background-color:  #e34f27;
+        position: absolute;
+        top: 0;
+        transform: rotate(45deg)
+     }
+     ::after {
+         content:"";
+         display: block;
+         width: 15px;
+         height: 3px;
+         background-color:  #e34f27;
+         position: absolute;
+         top: 0;
+         transform: rotate(-45deg)
+    }*/ }
 
 .order {
   background-image: url("../images/bg/order-bg.jpg");
