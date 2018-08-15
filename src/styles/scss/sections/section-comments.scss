@@ -75,3 +75,60 @@
         }
     }
 }
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color:rgba(76, 82, 91, .8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+.overlaycontainer {
+    position: relative;
+    width: 400px;
+    height: 210px;
+    background-color: white;
+    color: black;
+    padding: 32px 24px;
+    border-radius: 5px;
+}
+.overlaycontent {
+    line-height: 1.9;
+    font-size: 13px;
+}
+.comments__overlaytitle {
+    font-size: 14px;
+    font-family: 'gagalin', Helvetica, sans-serif;
+    margin-bottom: 20px;
+}
+.close {
+    color: #e34f27;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 32px;
+    /*::before {
+        content:"";
+        display: block;
+        width: 15px;
+        height: 3px;
+        background-color:  #e34f27;
+        position: absolute;
+        top: 0;
+        transform: rotate(45deg)
+     }
+     ::after {
+         content:"";
+         display: block;
+         width: 15px;
+         height: 3px;
+         background-color:  #e34f27;
+         position: absolute;
+         top: 0;
+         transform: rotate(-45deg)
+    }*/
+}
