@@ -4,15 +4,33 @@
 .slider {
     position: relative;
     padding: 0 32px;
-    /*&__list {
-        display: flex;
-        width: 876px;
-        height: 373px;
-        position: relative;
+    &__wrap {
         overflow: hidden;
-    }*/
+        width: 940px;
+        @include tablet() {
+            width: 660px;
+        }
+        @include phone() {
+            width: 390px;
+        }
+    }
+    &__list {
+        right: 0;
+        display: flex;
+        width: 4700px;
+        position: relative;
+        will-change: right;
+        transition: right 0.5s;
+        @include tablet() {
+            width: 3300px;
+        }
+        @include phone() {
+            width: 1950px;
+        }
+    }
     &__item {
         position: relative;
+        flex: 1;
     }
 }
 .slide {
@@ -29,12 +47,20 @@
         padding-bottom: 0;
         flex: auto;
         text-align: center;
-    }
+        }
     }
     &__img {
         max-width: 100%;
         @include tablet() {
             max-width: 90%;
+        }
+        @include phone() {
+            max-width: 80%;
+        }
+        &--size {
+            @include phone() {
+                max-width: 70%;
+            }
         }
     }
     &__desc {

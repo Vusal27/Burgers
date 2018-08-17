@@ -109,6 +109,18 @@ input, textarea {
         background-color: transparent;
         text-transform: none;
     }
+    &_close {
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 13px;
+        text-transform: uppercase;
+        color: white;
+        border: none;
+        cursor: pointer;
+        background-color: #e34e29;
+        color: white;
+    }
 }
 .title {
     font-size: 72px;
