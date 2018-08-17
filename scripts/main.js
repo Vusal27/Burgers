@@ -86,10 +86,11 @@ accordionMenu()
 const left = document.querySelector(".slider__arrowprew");
 const right = document.querySelector(".slider__arrownext");
 const list = document.querySelector(".slider__list");
+const wrap = document.querySelector(".slider__wrap");
 
 const minRight = 0;
-const maxRight = 3504;
-const step = 876;
+const step = wrap.clientWidth;
+const maxRight = list.clientWidth -= step;
 let currentRight = 0;
 
 list.style.right = currentRight;
@@ -152,3 +153,89 @@ function openOverlay(content) {
 
   return overlayElement;
 }
+
+
+
+const myForm = document.querySelector('.form');
+const send = document.querySelector('.send');
+ send.addEventListener('click', event => {
+     event.preventDefault();
+
+     if (validateForm(myForm)) {
+
+
+const openButton = document.querySelector(".send");
+const successOverlay = openOverlay("Сообщение отправлено");
+
+openButton.addEventListener('click', function() {
+    document.body.appendChild(successOverlay);
+});
+
+function openOverlay(content) {
+  const overlayElement = document.createElement("div");
+  overlayElement.classList.add("over-lay");
+  overlayElement.addEventListener("click", e => {
+    if (e.target === overlayElement) {
+    closeElement.click();
+    }
+  });
+
+  const containerElement = document.createElement("div");
+  containerElement.classList.add("overlay-container");
+
+  const contentElement = document.createElement("div");
+  contentElement.classList.add("overlay-content");
+  contentElement.innerHTML = content;
+
+  const closeElement = document.createElement("button");
+  closeElement.classList.add("button_close");
+  closeElement.textContent = "закрыть";
+  closeElement.addEventListener("click", function() {
+    document.body.removeChild(overlayElement);
+  });
+
+  overlayElement.appendChild(containerElement);
+  containerElement.appendChild(contentElement);
+  containerElement.appendChild(closeElement);
+
+  return overlayElement;
+}
+
+
+        const data = {
+            name: myForm.elements.name.value,
+            phone: myForm.elements.phone.value,
+            comment: myForm.elements.comment.value
+        };
+        
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'json';
+        xhr.open('POST', 'https://webdev-api.loftschool.com/sendmail/fail');
+        xhr.send(JSON.stringify(data));
+        xhr.addEventListener('load', () => {
+            if (xhr.response.status !== 0) {
+                console.log('все ок');
+            }
+        });
+    }
+ });
+
+ function validateForm(form) {
+     let valid = true;
+
+     if (!validateformblock(form.elements.name)) {
+         valid = false;
+     }
+     if (!validateformblock(form.elements.phone)) {
+        valid = false;
+     }
+     if (!validateformblock(form.elements.comment)) {
+        valid = false;
+    }
+    return valid;
+ }
+
+ function validateformblock(formblock) {
+        formblock.nextElementSibling.textContent = formblock.validationMessage;
+        return formblock.checkValidity();
+ }
