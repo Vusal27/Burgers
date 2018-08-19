@@ -423,17 +423,15 @@ input, textarea {
       .slider__wrap {
         width: 24.375rem; } }
   .slider__list {
-    right: 0;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     width: 293.75rem;
     position: relative;
-    will-change: right;
-    -webkit-transition: right 0.5s;
-    -o-transition: right 0.5s;
-    transition: right 0.5s; }
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s; }
     @media (max-width: 768px) {
       .slider__list {
         width: 206.25rem; } }
