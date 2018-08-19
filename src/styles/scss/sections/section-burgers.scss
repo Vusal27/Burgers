@@ -15,12 +15,12 @@
         }
     }
     &__list {
-        right: 0;
+        //right: 0;
         display: flex;
         width: 4700px;
         position: relative;
-        will-change: right;
-        transition: right 0.5s;
+        //will-change: right;
+        transition: 1s;
         @include tablet() {
             width: 3300px;
         }
