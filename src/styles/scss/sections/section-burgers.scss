@@ -8,25 +8,16 @@
         overflow: hidden;
         width: 940px;
         @include tablet() {
-            width: 660px;
+            width: 580px;
         }
         @include phone() {
-            width: 390px;
+            width: 460px;
         }
     }
     &__list {
-        //right: 0;
         display: flex;
-        width: 4700px;
         position: relative;
-        //will-change: right;
         transition: 1s;
-        @include tablet() {
-            width: 3300px;
-        }
-        @include phone() {
-            width: 1950px;
-        }
     }
     &__item {
         position: relative;
@@ -204,6 +195,10 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    @include phone() {
+        left: 5%;
+        width: 90%;
+    }
 }
 .slider__arrow {
     width: 30px;
