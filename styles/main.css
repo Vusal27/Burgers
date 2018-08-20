@@ -411,11 +411,10 @@ input, textarea {
   background: linear-gradient(to top, #f9b43b 0%, #eb8c38 48%, #f9b43b 74%); }
 
 .slider {
-  position: relative;
-  padding: 0 2rem; }
+  width: 100%;
+  position: relative; }
   .slider__wrap {
-    overflow: hidden;
-    width: 58.75rem; }
+    overflow: hidden; }
     @media (max-width: 768px) {
       .slider__wrap {
         width: 36.25rem; } }
@@ -427,7 +426,6 @@ input, textarea {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    position: relative;
     -webkit-transition: 1s;
     -o-transition: 1s;
     transition: 1s; }
@@ -436,7 +434,8 @@ input, textarea {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
         -ms-flex: 1;
-            flex: 1; }
+            flex: 1;
+    padding: 0 2rem; }
 
 .slide {
   display: -webkit-box;
@@ -690,7 +689,9 @@ input, textarea {
   width: 1.875rem;
   height: 3.125rem;
   border: transparent;
-  cursor: pointer; }
+  cursor: pointer;
+  background-position: center;
+  outline: none; }
 
 .slider__arrowprew {
   background: url("../images/content/intro/Strelka33.png");
@@ -784,7 +785,6 @@ input, textarea {
     -o-transition: 1s;
     transition: 1s; }
     .team__content-wrap {
-      height: 6.25rem;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -792,24 +792,19 @@ input, textarea {
       color: white; }
       @media (max-width: 768px) {
         .team__content-wrap {
-          height: 8.4375rem;
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
           -webkit-flex-flow: column;
               -ms-flex-flow: column;
                   flex-flow: column; } }
-  .team__list {
-    width: 22.5rem; }
   .team__item {
     margin-top: 1.875rem; }
     @media (max-width: 768px) {
       .team__item {
         text-align: center; } }
-    .team__item--active .team__content {
-      height: 6.25rem; }
-      @media (max-width: 768px) {
-        .team__item--active .team__content {
-          height: 9.375rem; } }
+    @media (max-width: 768px) {
+      .team__item--active .team__content {
+        height: 9.375rem; } }
     .team__item--active .team__link {
       color: #f7b23b; }
       .team__item--active .team__link::before {
@@ -880,7 +875,12 @@ input, textarea {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    -webkit-transition: -webkit-transform 1s;
+    transition: -webkit-transform 1s;
+    -o-transition: transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s; }
   .menu__item {
     display: -webkit-box;
     display: -webkit-flex;
@@ -895,6 +895,14 @@ input, textarea {
           width: 25rem; } }
     .menu__item--active .menu__title {
       color: #f7b23b; }
+    .menu__item--active .menu__desc {
+      opacity: 1;
+      -webkit-transition: opacity .4s;
+      -o-transition: opacity .4s;
+      transition: opacity .4s;
+      -webkit-transition-delay: .8s;
+           -o-transition-delay: .8s;
+              transition-delay: .8s; }
   .menu__link {
     display: -webkit-box;
     display: -webkit-flex;
@@ -925,18 +933,15 @@ input, textarea {
     overflow: hidden;
     -webkit-transition: 1s;
     -o-transition: 1s;
-    transition: 1s; }
+    transition: 1s;
+    background-color: #2f3133;
+    opacity: 0.9; }
   .menu__desc {
-    min-width: 25rem;
     line-height: 1.42;
     color: white;
     padding: 2.5rem;
     padding-bottom: 0;
-    background-color: #2f3133;
-    opacity: 0.9; }
-    @media (max-width: 768px) {
-      .menu__desc {
-        min-width: 20rem; } }
+    opacity: 0; }
 
 .comments__content {
   width: 100%;
@@ -1055,12 +1060,15 @@ input, textarea {
 .overlaycontainer {
   position: relative;
   width: 25rem;
-  height: 13.125rem;
+  min-height: 13.125rem;
   background-color: white;
   color: black;
   padding: 2rem 1.5rem;
   -webkit-border-radius: 5px;
           border-radius: 5px; }
+  @media (max-width: 480px) {
+    .overlaycontainer {
+      width: 80%; } }
 
 .overlaycontent {
   line-height: 1.9;
@@ -1076,27 +1084,7 @@ input, textarea {
   position: absolute;
   top: 1rem;
   right: 1.25rem;
-  font-size: 2rem;
-  /*::before {
-        content:"";
-        display: block;
-        width: 15px;
-        height: 3px;
-        background-color:  #e34f27;
-        position: absolute;
-        top: 0;
-        transform: rotate(45deg)
-     }
-     ::after {
-         content:"";
-         display: block;
-         width: 15px;
-         height: 3px;
-         background-color:  #e34f27;
-         position: absolute;
-         top: 0;
-         transform: rotate(-45deg)
-    }*/ }
+  font-size: 2rem; }
 
 .order {
   background-image: url("../images/bg/order-bg.jpg");
@@ -1286,7 +1274,7 @@ input, textarea {
 
 .overlay-container {
   width: 10.625rem;
-  height: 5rem;
+  min-height: 5rem;
   background-color: white;
   color: black;
   padding: 1.25rem;

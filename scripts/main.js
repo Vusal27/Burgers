@@ -114,8 +114,8 @@ const list = document.querySelector(".slider__list");
 const widthContainer = document.querySelector('.slider__wrap').clientWidth;
 const controls = document.querySelector('.slider__arrows');
 var pos = 0;
-console.log(widthContainer);
 function calcWidthList() {
+    const widthContainer = document.querySelector('.slider__wrap').clientWidth;
     const itemCount = list.children.length;
     const widthList = itemCount * widthContainer;
 
@@ -171,7 +171,8 @@ function translate(pos) {
 controls.addEventListener('click', handlerClick);
 
 window.addEventListener('load', calcWidthList);
-
+window.addEventListener('resize', calcWidthList);
+////////////
 
 
 // const left = document.querySelector(".slider__arrowprew");
