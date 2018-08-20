@@ -2,11 +2,10 @@
     background: linear-gradient(to top, #f9b43b 0%, #eb8c38 48%, #f9b43b 74%);
 }
 .slider {
+    width: 100%;
     position: relative;
-    padding: 0 32px;
     &__wrap {
         overflow: hidden;
-        width: 940px;
         @include tablet() {
             width: 580px;
         }
@@ -16,12 +15,12 @@
     }
     &__list {
         display: flex;
-        position: relative;
         transition: 1s;
     }
     &__item {
         position: relative;
         flex: 1;
+        padding: 0 32px;
     }
 }
 .slide {
@@ -205,6 +204,8 @@
     height: 50px;
     border: transparent;
     cursor: pointer;
+    background-position: center;
+    outline: none;
 }
 .slider__arrowprew {
     background: url('../images/content/intro/Strelka33.png');

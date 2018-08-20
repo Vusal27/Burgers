@@ -39,17 +39,12 @@
         overflow: hidden;
         transition: 1s;
         &-wrap {
-            height: 100px;
             display: flex;
             color: white;
             @include tablet() {
-                height: 135px;
                 flex-flow: column;
             }
         }
-    }
-    &__list {
-        width: 360px;
     }
     &__item {
         margin-top: 30px;
@@ -58,7 +53,6 @@
         }
         &--active {
             .team__content {
-                height: 100px;
                 @include tablet() {
                     height: 150px;
                 }

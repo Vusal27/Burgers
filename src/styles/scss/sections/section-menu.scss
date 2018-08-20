@@ -10,6 +10,7 @@
     }
     &__list {
         display: flex;
+        transition: transform 1s;
     }
     &__item {
         display: flex;
@@ -24,6 +25,11 @@
             }
             .menu__title {
                 color: $orange;
+            }
+            .menu__desc {
+                opacity: 1;
+                transition: opacity .4s;
+                transition-delay: .8s;
             }
         }
     }
@@ -47,17 +53,14 @@
         width: 0;
         overflow: hidden;
         transition: 1s;
+        background-color: #2f3133;
+        opacity: 0.9;
     }
     &__desc {
-        min-width: 400px;
         line-height: 1.42;
         color: white;
         padding: 40px;
         padding-bottom: 0;
-        background-color: #2f3133;
-        opacity: 0.9;
-        @include tablet() {
-            min-width: 320px;
-        }
+        opacity: 0;
     }
 }
