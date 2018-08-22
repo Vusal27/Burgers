@@ -6,12 +6,6 @@
     position: relative;
     &__wrap {
         overflow: hidden;
-        @include tablet() {
-            width: 580px;
-        }
-        @include phone() {
-            width: 460px;
-        }
     }
     &__list {
         display: flex;

@@ -65,6 +65,10 @@
 }
 .logo {
     display: block;
+    &-img {
+        width: 91px;
+        height: 71px;
+    }
 }
 .nav__list {
     display: flex;
