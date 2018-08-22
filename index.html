@@ -5,8 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Burgers</title>
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
         <link href="styles/found/normalize.css" rel="stylesheet" type="text/css"/>
         <link href="styles/main.css" rel="stylesheet" type="text/css"/>
+        <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript">
+        </script>
     </head>
     <body>
         <main class="wrapper">
@@ -844,27 +849,29 @@
                         </form>
                     </div>
                 </section>
-                <section class="section map">
-                    <a href="#" class="map__marker map__marker--1">
-                        <svg class="map__marker-svg">
-                            <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
-                        </svg>
-                    </a>
-                    <a href="#" class="map__marker map__marker--2">
-                        <svg class="map__marker-svg">
-                            <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
-                        </svg>
-                    </a>
-                    <a href="#" class="map__marker map__marker--3">
-                        <svg class="map__marker-svg">
-                            <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
-                        </svg>
-                    </a>
-                    <a href="#" class="map__marker map__marker--4">
-                        <svg class="map__marker-svg">
-                            <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
-                        </svg>
-                    </a>
+                <section class="section map-main">
+                    <div class="map" id="map">
+                        <a href="#" class="map__marker map__marker--1">
+                            <svg class="map__marker-svg">
+                                <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
+                            </svg>
+                        </a>
+                        <a href="#" class="map__marker map__marker--2">
+                            <svg class="map__marker-svg">
+                                <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
+                            </svg>
+                        </a>
+                        <a href="#" class="map__marker map__marker--3">
+                            <svg class="map__marker-svg">
+                                <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
+                            </svg>
+                        </a>
+                        <a href="#" class="map__marker map__marker--4">
+                            <svg class="map__marker-svg">
+                                <use xlink:href="./images/svgicons/sprite.svg#map-marker"></use>
+                            </svg>
+                        </a>
+                    </div>
                     <footer class="footer">
                         <div class="container container_footer">
                             <div class="contacts">
