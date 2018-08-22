@@ -1,11 +1,16 @@
-.map {
-    background-image: url('../images/bg/map-bg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+.map-main {
     position: relative;
-    @include phone() {
-        background-position: center;
-    }
+    display: flex;
+}
+.map {
+    flex: 1;
+    // background-image: url('../images/bg/map-bg.jpg');
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // position: relative;
+    // @include phone() {
+    //     background-position: center;
+    // }
     &__marker {
         display: block;
         width: 50px;

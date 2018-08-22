@@ -167,11 +167,9 @@ function translate(pos) {
     list.style.transform = `translateX(${pos}px)`;
 }
 
-
 controls.addEventListener('click', handlerClick);
-
 window.addEventListener('load', calcWidthList);
-
+////////////
 
 // const left = document.querySelector(".slider__arrowprew");
 // const right = document.querySelector(".slider__arrownext");
@@ -339,3 +337,41 @@ function validateForm(form) {
         return formblock.checkValidity();
  }
  ////////////
+ymaps.ready(init);
+
+function init() {
+    var map = new ymaps.Map('map', {
+        center: [59.92, 30.32],
+        zoom:12,
+        controls:['zoomControl'],
+        behaviors: ['drag']
+    });
+    var placemark = new ymaps.Placemark([59.97, 30.31], {
+        iconLayout: 'default#image',
+        iconImageHref: '../images/svgicons/marker.png',
+        iconImageSize: [46, 57],
+        iconImageOffset: [-23, -57]
+    });
+    var placemark2 = new ymaps.Placemark([59.94, 30.38], {
+        iconLayout: 'default#image',
+        iconImageHref: '../images/svgicons/marker.png',
+        iconImageSize: [46, 57],
+        iconImageOffset: [-23, -57]
+    });
+    var placemark3 = new ymaps.Placemark([59.88, 30.31], {
+        iconLayout: 'default#image',
+        iconImageHref: '../images/svgicons/map-marker.svg',
+        iconImageSize: [46, 57],
+        iconImageOffset: [-23, -57]
+    });
+    var placemark4 = new ymaps.Placemark([59.91, 30.49], {
+        iconLayout: 'default#image',
+        iconImageHref: '../images/svgicons/map-marker.svg',
+        iconImageSize: [46, 57],
+        iconImageOffset: [-23, -57]
+    });
+    map.geoObjects.add(placemark);
+    map.geoObjects.add(placemark2);
+    map.geoObjects.add(placemark3);
+    map.geoObjects.add(placemark4);
+}
