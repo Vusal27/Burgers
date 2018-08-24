@@ -270,21 +270,22 @@ send.addEventListener('click', event => {
         const xhr = new XMLHttpRequest();
         xhr.responseType = 'json';
         xhr.open('POST', 'https://webdev-api.loftschool.com/sendmail');
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         console.log(JSON.stringify(data));
         
         xhr.send(JSON.stringify(data));
         xhr.addEventListener('load', () => {
             console.log(xhr.response);
             
-            if (xhr.response.status !== 0) {
+            if (xhr.response.status === 200) {
                 console.log(xhr.response);
-                document.body.appendChild(openOverlayForm(xhr.response));
+                document.body.appendChild(openOverlayForm('Отправлено'));
             } else {
                 console.log(xhr.response.status);
                 document.body.appendChild(openOverlayForm(xhr.response.message));
             }
         });
-        document.body.appendChild(openOverlayForm('xhr.response'));
+        //document.body.appendChild(openOverlayForm('xhr.response'));
     }
 });
 function openOverlayForm(content) {
@@ -337,6 +338,14 @@ function validateForm(form) {
         return formblock.checkValidity();
  }
  ////////////
+
+ // function initMap() {
+//   var uluru = {lat: 59.907, lng: 30.246};
+//   var map = new google.maps.Map(
+//       document.getElementById('map'), {zoom: 12, center: uluru});
+//   var marker = new google.maps.Marker({position: uluru, map: map});
+// }
+
 ymaps.ready(init);
 
 function init() {
@@ -348,25 +357,25 @@ function init() {
     });
     var placemark = new ymaps.Placemark([59.97, 30.31], {
         iconLayout: 'default#image',
-        iconImageHref: '../images/svgicons/marker.png',
+        iconImageHref: 'images/svgicons/marker.png',
         iconImageSize: [46, 57],
         iconImageOffset: [-23, -57]
     });
     var placemark2 = new ymaps.Placemark([59.94, 30.38], {
         iconLayout: 'default#image',
-        iconImageHref: '../images/svgicons/marker.png',
+        iconImageHref: 'images/svgicons/marker.png',
         iconImageSize: [46, 57],
         iconImageOffset: [-23, -57]
     });
     var placemark3 = new ymaps.Placemark([59.88, 30.31], {
         iconLayout: 'default#image',
-        iconImageHref: '../images/svgicons/map-marker.svg',
+        iconImageHref: 'images/svgicons/marker.png',
         iconImageSize: [46, 57],
         iconImageOffset: [-23, -57]
     });
     var placemark4 = new ymaps.Placemark([59.91, 30.49], {
         iconLayout: 'default#image',
-        iconImageHref: '../images/svgicons/map-marker.svg',
+        iconImageHref: 'images/svgicons/marker.png',
         iconImageSize: [46, 57],
         iconImageOffset: [-23, -57]
     });
@@ -375,3 +384,105 @@ function init() {
     map.geoObjects.add(placemark3);
     map.geoObjects.add(placemark4);
 }
+////////////
+
+(function () {
+    const container = document.querySelector('.main-content');
+    const nav = document.querySelector('.switcher');
+    const down = document.querySelector('.hero__down-link');
+
+    const duration = 1500;
+    let posY = 0;
+    let isAmimate = false
+
+
+    window.addEventListener('wheel', handlerWheel);
+    nav.addEventListener('click', handlerClick);
+    //menu.addEventListener('click', handlerClick);
+
+    function handlerClick(e) {
+        e.preventDefault();
+
+        if (e.target.tagName === 'A') {
+            const index = e.target.getAttribute('href');
+            const [active, activenav] = getActives();
+
+            reActive(false, active, 'section', null, index);
+            reActive(false, activenav, 'switcher__item', null, index);
+
+            posY = index;
+
+            translate(posY);
+        }
+    }
+
+    function handlerWheel(e) {
+        console.log(e.deltaY);
+        if (isAmimate) return;
+
+        if (e.deltaY > 0) {
+            const isNext = isSlide('next');
+
+            slideTo(isNext, 'next');
+        } else {
+            const isPrev = isSlide('previous');
+
+            slideTo(isPrev, 'prev');
+        }
+    }
+
+    function slideTo(resolve, vector) {
+        if (vector === 'next' && resolve) {
+            posY++;
+            translate(posY);
+        }
+
+        if (vector === 'prev' && resolve) {
+            posY--;
+            translate(posY);
+        }
+    }
+
+    function translate(pos) {
+        container.style.transform = `translate3d(0, ${-pos * 100}%,0)`;
+        container.style.transition = `all ${duration}ms ease 0s`;
+
+        isAmimate = true
+
+        setTimeout(() => {
+            isAmimate = false;
+        }, duration)
+    }
+
+    function isSlide(vector) {
+        const [active, activenav] = getActives()
+
+        if (active[`${vector}ElementSibling`]) {
+            reActive(true, active, 'section', vector);
+            reActive(true, activenav, 'switcher__item', vector);
+
+            return true
+        }
+    }
+
+    function reActive(isSibling, elem, _class, vector, index) {
+        if (isSibling) {
+            elem.classList.remove(`${_class}_active`);
+            elem[`${vector}ElementSibling`].classList.add(`${_class}_active`);
+        } else {
+            elem.classList.remove(`${_class}_active`);
+            document.querySelectorAll(`.${_class}`)[index]
+                .classList.add(`${_class}_active`);
+            console.log(document.querySelectorAll(`.${_class}`)[index])
+        }
+    }
+
+    function getActives() {
+        const active = document.querySelector('.section_active');
+        const activenav = document.querySelector('.switcher_active');
+
+        return [active, activenav];
+    }
+
+
+})();

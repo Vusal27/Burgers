@@ -75,7 +75,7 @@ input, textarea {
           box-sizing: border-box; }
 
 .wrapper {
-  overflow-x: hidden;
+  overflow-X: hidden;
   position: relative;
   height: 100%; }
 
@@ -131,7 +131,8 @@ input, textarea {
 
 .section {
   height: 100vh;
-  min-height: 40.625rem; }
+  min-height: 40.625rem;
+  position: relative; }
 
 .button {
   padding: 0.625rem 0.9375rem;
@@ -1308,29 +1309,6 @@ input, textarea {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1; }
-  .map__marker {
-    display: block;
-    width: 3.125rem;
-    height: 3.75rem; }
-    .map__marker--1 {
-      position: absolute;
-      top: 9.375rem;
-      left: 35rem; }
-    .map__marker--2 {
-      position: absolute;
-      top: 16.25rem;
-      right: 29.375rem; }
-    .map__marker--3 {
-      position: absolute;
-      bottom: 5.625rem;
-      left: 35rem; }
-    .map__marker--4 {
-      position: absolute;
-      bottom: 14.375rem;
-      right: 14.75rem; }
-  .map__marker-svg {
-    width: 3.125rem;
-    height: 3.75rem; }
 
 .footer {
   position: absolute;
@@ -1467,7 +1445,7 @@ input, textarea {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
 
-.switcher__item--activ .switcher__item-link::before {
+.switcher__item_activ .switcher__item-link::before {
   opacity: 1; }
 
 .navadapt, .navadapt__wrap {
