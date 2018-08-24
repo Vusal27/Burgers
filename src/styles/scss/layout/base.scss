@@ -38,7 +38,7 @@ input, textarea {
     box-sizing: border-box;
 }
 .wrapper {
-    overflow-x:hidden;
+    overflow-X:hidden;
     position: relative;
     height: 100%;
 }
@@ -70,6 +70,7 @@ input, textarea {
 .section {
     height: 100vh;
     min-height: 650px;
+    position: relative;
 }
 .button {
     padding: 10px 15px;

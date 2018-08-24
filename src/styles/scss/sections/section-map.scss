@@ -4,46 +4,6 @@
 }
 .map {
     flex: 1;
-    // background-image: url('../images/bg/map-bg.jpg');
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // position: relative;
-    // @include phone() {
-    //     background-position: center;
-    // }
-    &__marker {
-        display: block;
-        width: 50px;
-        height: 60px;
-        &--1 {
-
-            position: absolute;
-            top: 150px;
-            left: 560px;
-        }
-        &--2 {
-
-            position: absolute;
-            top: 260px;
-            right: 470px;
-        }
-        &--3 {
-
-            position: absolute;
-            bottom: 90px;
-            left: 560px;
-        }
-        &--4 {
-
-            position: absolute;
-            bottom: 230px;
-            right: 236px;
-        }
-    }
-    &__marker-svg {
-        width: 50px;
-        height: 60px;
-    }
 }
 .footer {
     position: absolute;
