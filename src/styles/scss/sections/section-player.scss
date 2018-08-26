@@ -1,0 +1,10 @@
+.player {
+    background: url('../images/bg/bg-player.jpg') 0 0 / cover no-repeat ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    &__main {
+        text-align: center;
+    }
+}

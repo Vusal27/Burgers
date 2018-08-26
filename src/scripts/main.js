@@ -349,31 +349,39 @@ function validateForm(form) {
 ymaps.ready(init);
 
 function init() {
-    var map = new ymaps.Map('map', {
+    var map = new ymaps.Map('map',{
         center: [59.92, 30.32],
         zoom:12,
         controls:['zoomControl'],
         behaviors: ['drag']
     });
-    var placemark = new ymaps.Placemark([59.97, 30.31], {
+    var placemark = new ymaps.Placemark([59.97, 30.31] , {
+        hintContent: 'BurgerShop'
+        } , {
+        iconImageHref: 'images/svgicons/marker.png',
+        iconImageSize: [46, 57],
+        iconImageOffset: [-23, -57],
+        iconLayout: 'default#image'
+    });
+    var placemark2 = new ymaps.Placemark([59.94, 30.38] , {
+        hintContent: 'BurgerShop'
+        } , {
         iconLayout: 'default#image',
         iconImageHref: 'images/svgicons/marker.png',
         iconImageSize: [46, 57],
         iconImageOffset: [-23, -57]
     });
-    var placemark2 = new ymaps.Placemark([59.94, 30.38], {
+    var placemark3 = new ymaps.Placemark([59.88, 30.31] , {
+        hintContent: 'BurgerShop'
+        } , {
         iconLayout: 'default#image',
         iconImageHref: 'images/svgicons/marker.png',
         iconImageSize: [46, 57],
         iconImageOffset: [-23, -57]
     });
-    var placemark3 = new ymaps.Placemark([59.88, 30.31], {
-        iconLayout: 'default#image',
-        iconImageHref: 'images/svgicons/marker.png',
-        iconImageSize: [46, 57],
-        iconImageOffset: [-23, -57]
-    });
-    var placemark4 = new ymaps.Placemark([59.91, 30.49], {
+    var placemark4 = new ymaps.Placemark([59.91, 30.49] , {
+        hintContent: 'BurgerShop'
+        } , {
         iconLayout: 'default#image',
         iconImageHref: 'images/svgicons/marker.png',
         iconImageSize: [46, 57],
@@ -389,7 +397,9 @@ function init() {
 (function () {
     const container = document.querySelector('.main-content');
     const nav = document.querySelector('.switcher');
-    const down = document.querySelector('.hero__down-link');
+    const down = document.querySelector('.hero__down');
+    const menu = document.querySelector('.nav__list');
+    const orderButton = document.querySelector('.button_color-orange');
 
     const duration = 1500;
     let posY = 0;
@@ -398,73 +408,112 @@ function init() {
 
     window.addEventListener('wheel', handlerWheel);
     nav.addEventListener('click', handlerClick);
-    //menu.addEventListener('click', handlerClick);
+    menu.addEventListener('click', menuHandlerClick);
+    down.addEventListener('click', downHandlerClick);
+    // orderButton.addEventListener('click', ButtonHandlerClick);
 
+    // function menuHandlerClick(e) {
+    //     e.preventDefault();
+
+    //     if (e.target.tagName === 'button') {
+    //         const index = e.target.getAttribute('data');
+    //         const [active, activenav, activemenu] = getActives();
+
+    //         reActive(false, active, 'section', null, index);
+    //         reActive(false, activenav, 'switcher__item', null, index);
+    //         reActive(false, activenav, 'nav__item', null, index);
+            
+    //         posY = index;
+    //         translate(posY);
+    //     }
+    // }
+    
+    function downHandlerClick(e) {
+        e.preventDefault();
+
+        if (e.target.tagName === "A") {
+            const index = e.target.getAttribute('href');
+            const [active, activenav, activedown] = getActives();
+
+            reActive(false, active, 'section', null, index);
+            reActive(false, activenav, 'switcher__item', null, index);
+            reActive(false, activedown, 'herodown', null, index);
+            
+            posY = index;
+            translate(posY);
+        }
+    }
+
+    function menuHandlerClick(e) {
+        e.preventDefault();
+
+        if (e.target.tagName === 'A') {
+            
+            const index = e.target.getAttribute('href');
+            const [active, activenav, activemenu] = getActives();
+
+            reActive(false, active, 'section', null, index);
+            reActive(false, activenav, 'switcher__item', null, index);
+            reActive(false, activemenu, 'nav__item', null, index);
+            
+            posY = index;
+            translate(posY);
+        }
+    }
+    
     function handlerClick(e) {
         e.preventDefault();
 
         if (e.target.tagName === 'A') {
             const index = e.target.getAttribute('href');
-            const [active, activenav] = getActives();
+            const [active, activenav, activemenu] = getActives();
 
             reActive(false, active, 'section', null, index);
             reActive(false, activenav, 'switcher__item', null, index);
-
+            reActive(false, activemenu, 'nav__item', null, index);
+            
             posY = index;
-
             translate(posY);
         }
     }
-
     function handlerWheel(e) {
         console.log(e.deltaY);
         if (isAmimate) return;
-
         if (e.deltaY > 0) {
             const isNext = isSlide('next');
-
             slideTo(isNext, 'next');
         } else {
             const isPrev = isSlide('previous');
-
             slideTo(isPrev, 'prev');
         }
     }
-
     function slideTo(resolve, vector) {
         if (vector === 'next' && resolve) {
             posY++;
             translate(posY);
         }
-
         if (vector === 'prev' && resolve) {
             posY--;
             translate(posY);
         }
     }
-
     function translate(pos) {
         container.style.transform = `translate3d(0, ${-pos * 100}%,0)`;
         container.style.transition = `all ${duration}ms ease 0s`;
-
         isAmimate = true
-
         setTimeout(() => {
             isAmimate = false;
         }, duration)
     }
-
     function isSlide(vector) {
         const [active, activenav] = getActives()
 
         if (active[`${vector}ElementSibling`]) {
             reActive(true, active, 'section', vector);
             reActive(true, activenav, 'switcher__item', vector);
-
             return true
         }
     }
-
     function reActive(isSibling, elem, _class, vector, index) {
         if (isSibling) {
             elem.classList.remove(`${_class}_active`);
@@ -472,17 +521,27 @@ function init() {
         } else {
             elem.classList.remove(`${_class}_active`);
             document.querySelectorAll(`.${_class}`)[index]
-                .classList.add(`${_class}_active`);
+            elem.classList.add(`${_class}_active`);
+            console.log(elem);
+            
             console.log(document.querySelectorAll(`.${_class}`)[index])
         }
     }
-
     function getActives() {
         const active = document.querySelector('.section_active');
-        const activenav = document.querySelector('.switcher_active');
-
-        return [active, activenav];
+        const activenav = document.querySelector('.switcher__item_active');
+        const activemenu = document.querySelector('.nav__item_active');
+        const activedown = document.querySelector('.hero__down_active');
+        return [active, activenav, activemenu, activedown];
     }
-
-
 })();
+////////////
+
+
+
+player = new YT.Player('yt-player', {
+events: {
+    'onReady': onPlayerReady,
+    'onStateChange': onPlayerStateChange
+}
+});
