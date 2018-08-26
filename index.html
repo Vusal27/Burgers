@@ -24,16 +24,16 @@
                             </a>
                               <nav class="nav">
                                 <ul class="nav__list">
-                                    <li class="nav__item"><a href="#" class="nav__link">о нас</a></li>
-                                    <li class="nav__item"><a href="#" class="nav__link">бургеры</a></li>
-                                    <li class="nav__item"><a href="#" class="nav__link">команда</a></li>
-                                    <li class="nav__item"><a href="#" class="nav__link">меню</a></li>
-                                    <li class="nav__item"><a href="#" class="nav__link">отзывы</a></li>
-                                    <li class="nav__item"><a href="#" class="nav__link">как мы работаем</a></li>
-                                    <li class="nav__item"><a href="#" class="nav__link">контакты</a></li>
+                                    <li class="nav__item nav__item_active"><a href="1" class="nav__link">о нас</a></li>
+                                    <li class="nav__item"><a href="2" class="nav__link">бургеры</a></li>
+                                    <li class="nav__item"><a href="3" class="nav__link">команда</a></li>
+                                    <li class="nav__item"><a href="4" class="nav__link">меню</a></li>
+                                    <li class="nav__item"><a href="5" class="nav__link">отзывы</a></li>
+                                    <li class="nav__item"><a href="6" class="nav__link">как мы работаем</a></li>
+                                    <li class="nav__item"><a href="8" class="nav__link">контакты</a></li>
                                 </ul>
                               </nav>
-                            <button class="button button_color-orange">заказать</button>
+                            <button class="button button_color-orange" data-btn="order">заказать</button>
                         </Header>
                           <div class="hero__content">
                               <div class="hero__content-img">
@@ -44,12 +44,14 @@
                                   <p class="hero__content-text">натуральные бургеры</p>
                               </div>
                           </div>
-                        <div class="hero__down">
-                            <a href="1" class="hero__down-link">
+                          <div class="hero__down">
+                            <div class="herodown herodown_active">
+                                <a href="1" class="hero__down-link">
                                 <svg class="hero__down-svg">
                                     <use xlink:href="./images/svgicons/sprite.svg#scroll"></use>
                                 </svg>
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -769,6 +771,27 @@
                         </ul>
                     </div>
                 </section>
+                <section class="section player">
+                    <h2 class="title title_color-grey">Как мы работаем</h2>
+                    <div class="player__main">
+                        <div class="player__wrapper">
+                            <iframe id="player" type="text/html" width="640" height="360"
+                            src="http://www.youtube.com/embed/YV9XuvfIudY"
+                            frameborder="0"></iframe>
+                            <div class="player__splash"></div>
+                        </div>
+                        <div class="player__controls">
+                            <button onclick="player__start" class="player__start">></button>
+                            <div class="player__playback">
+                                <button class="player__playback-button"></button>
+                            </div>
+                            <div class="player__duration">
+                                <span class="player__duration-completed">0:00</span> :
+                                <span class="player__duration-estimate">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <section class="section order">
                     <div class="container">
                         <h2 class="title title_order">закажите доставку</h2>
@@ -900,7 +923,7 @@
                     </footer>
                 </section>
                 <ul class="switcher">
-                    <li class="switcher__item switcher__item_activ">
+                    <li class="switcher__item switcher__item_active">
                         <a href="0" class="switcher__item-link"></a>
                     </li>
                     <li class="switcher__item">
@@ -944,6 +967,7 @@
                 <a href="#" class="nav__burger-link">
                     <div  class="nav__burger"></div>
                 </a>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                 <script src="scripts/main.js"></script>
             </div>
         </main>
