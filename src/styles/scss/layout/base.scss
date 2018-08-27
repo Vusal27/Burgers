@@ -82,12 +82,22 @@ input, textarea {
     color: white;
     border: none;
     cursor: pointer;
+    &_order--link {
+        color: white;
+        padding: 10px 15px;
+        display: block;
+        cursor: pointer;
+    }
+    &_header {
+        margin: 0 60px 0 20px;
+        background-color: #e34e29;
+        cursor: pointer;
+        padding: 0;
+    }
     &_color-orange {
         background-color: #e34e29;
-        margin: 0 60px 0 20px;
-    }
-    &_color--orange {
-        background-color: #e34e29;
+        cursor: pointer;
+        padding: 0;
     }
     &--comments {
         background-color: $sgrey;

@@ -400,6 +400,8 @@ function init() {
     const down = document.querySelector('.hero__down');
     const menu = document.querySelector('.nav__list');
     const orderButton = document.querySelector('.button_color-orange');
+    const orderButtonHeader = document.querySelector('.button_header');
+    const tabletMenu = document.querySelector('.navadapt__list');
 
     const duration = 1500;
     let posY = 0;
@@ -409,35 +411,74 @@ function init() {
     window.addEventListener('wheel', handlerWheel);
     nav.addEventListener('click', handlerClick);
     menu.addEventListener('click', menuHandlerClick);
+    tabletMenu.addEventListener('click', tabletMenuHandlerClick);
     down.addEventListener('click', downHandlerClick);
-    // orderButton.addEventListener('click', ButtonHandlerClick);
+    orderButton.addEventListener('click', buttonHandlerClick);
+    orderButtonHeader.addEventListener('click', buttonHeaderHandlerClick);
 
-    // function menuHandlerClick(e) {
-    //     e.preventDefault();
+    function buttonHeaderHandlerClick(e) {
+        e.preventDefault();
 
-    //     if (e.target.tagName === 'button') {
-    //         const index = e.target.getAttribute('data');
-    //         const [active, activenav, activemenu] = getActives();
+        if (e.target.tagName === 'A') {
+            const index = e.target.getAttribute('href');
+            const [active, activenav,  activebuttonHeader] = getActives();
 
-    //         reActive(false, active, 'section', null, index);
-    //         reActive(false, activenav, 'switcher__item', null, index);
-    //         reActive(false, activenav, 'nav__item', null, index);
+            reActive(false, active, 'section', null, index);
+            reActive(false, activenav, 'switcher__item', null, index);
+            reActive(false, activebuttonHeader, 'button_header', null, index);
             
-    //         posY = index;
-    //         translate(posY);
-    //     }
-    // }
+            posY = index;
+            translate(posY);
+        }
+    }
+
+    function buttonHandlerClick(e) {
+        e.preventDefault();
+        console.log(1);
+
+        if (e.target.tagName === 'A') {
+            console.log(2);
+            const index = e.target.getAttribute('href');
+            const [active, activenav,  activebutton] = getActives();
+
+            reActive(false, active, 'section', null, index);
+            reActive(false, activenav, 'switcher__item', null, index);
+            reActive(false, activebutton, 'button_color-orange', null, index);
+            
+            posY = index;
+            translate(posY);
+        }
+    }
     
     function downHandlerClick(e) {
         e.preventDefault();
 
-        if (e.target.tagName === "A") {
-            const index = e.target.getAttribute('href');
+        if (e.target.parentNode.tagName === "A") {
+            
+            const index = e.target.parentNode.getAttribute('href');
             const [active, activenav, activedown] = getActives();
 
             reActive(false, active, 'section', null, index);
             reActive(false, activenav, 'switcher__item', null, index);
             reActive(false, activedown, 'herodown', null, index);
+            
+            posY = index;
+            translate(posY);
+        }
+    }
+
+    function tabletMenuHandlerClick(e) {
+        e.preventDefault();
+
+        if (e.target.tagName === 'A') {
+            
+            const index = e.target.getAttribute('href');
+            const [active, activenav, activemenu, activetabletMenu] = getActives();
+
+            reActive(false, active, 'section', null, index);
+            reActive(false, activenav, 'switcher__item', null, index);
+            reActive(false, activemenu, 'nav__item', null, index);
+            reActive(false, activetabletMenu, 'navadapt__item', null, index);
             
             posY = index;
             translate(posY);
@@ -531,17 +572,47 @@ function init() {
         const active = document.querySelector('.section_active');
         const activenav = document.querySelector('.switcher__item_active');
         const activemenu = document.querySelector('.nav__item_active');
-        const activedown = document.querySelector('.hero__down_active');
-        return [active, activenav, activemenu, activedown];
+        const activetabletMenu = document.querySelector('.navadapt__item_active');
+        const activedown = document.querySelector('.herodown_active');
+        const activebutton = document.querySelector('.button_color-orange_active');
+        const activebuttonHeader = document.querySelector('.button_header_active');
+        return [active, activenav, activemenu, activetabletMenu, activedown, activebutton, activebuttonHeader];
     }
 })();
 ////////////
 
-
-
-player = new YT.Player('yt-player', {
-events: {
-    'onReady': onPlayerReady,
-    'onStateChange': onPlayerStateChange
+let player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player("ytplayer", {
+        width: "660",
+        height: "405",
+        videoId: "zmg_jOwa9Fc",
+        playerVars: {
+            controls: 0,
+            disablekb: 0,
+            showinfo: 0,
+            rel: 0,
+            autoplay: 0,
+            modestbranding: 0
+        },
+        // events: {
+        //     onReady: onPlayerReady,
+        //     onStateChange: onPlayerStateChange
+        // }
+    });
 }
+const playerStart = document.querySelector('.player__start');
+$('.player__start').on("click", e => {
+    e .preventDefault()
+    const block = $(e.currentTarget);
+    const playerStatus = player.getPlayerState();
+
+    if (playerStatus !== 1) {
+        player.playVideo();
+        // block.text('||');
+    } else {
+        player.pauseVideo();
+        // block.html();
+    }
+    
 });
