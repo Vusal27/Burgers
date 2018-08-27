@@ -33,7 +33,7 @@
                                     <li class="nav__item"><a href="8" class="nav__link">контакты</a></li>
                                 </ul>
                               </nav>
-                            <button class="button button_color-orange" data-btn="order">заказать</button>
+                            <button class="button button_header button_header_active"><a  href="7" class="button_order--link">заказать</a></button>
                         </Header>
                           <div class="hero__content">
                               <div class="hero__content-img">
@@ -117,7 +117,7 @@
                                                         <span class="slide__currency">рублей</span>
                                                     </div>
                                                     <div class="slide__btn">
-                                                        <button class="button button_color--orange">заказать</button>
+                                                        <button class="button button_color-orange button_color-orange_active"><a href="7" class="button_order--link">заказать</a></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -215,7 +215,7 @@
                                                         <span class="slide__currency">рублей</span>
                                                     </div>
                                                     <div class="slide__btn">
-                                                        <button class="button button_color--orange">заказать</button>
+                                                        <button class="button button_color-orange button_color-orange_active"><a  href="7" class="button_order--link">заказать</a></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -313,7 +313,7 @@
                                                         <span class="slide__currency">рублей</span>
                                                     </div>
                                                     <div class="slide__btn">
-                                                        <button class="button button_color--orange">заказать</button>
+                                                        <button class="button button_color-orange button_color-orange_active"><a  href="7" class="button_order--link">заказать</a></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -411,7 +411,7 @@
                                                         <span class="slide__currency">рублей</span>
                                                     </div>
                                                     <div class="slide__btn">
-                                                        <button class="button button_color--orange">заказать</button>
+                                                        <button class="button button_color-orange button_color-orange_active"><a  href="7" class="button_order--link">заказать</a></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -509,7 +509,7 @@
                                                         <span class="slide__currency">рублей</span>
                                                     </div>
                                                     <div class="slide__btn">
-                                                        <button class="button button_color--orange">заказать</button>
+                                                        <button class="button button_color-orange button_color-orange_active"><a  href="7" class="button_order--link">заказать</a></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -774,20 +774,26 @@
                 <section class="section player">
                     <h2 class="title title_color-grey">Как мы работаем</h2>
                     <div class="player__main">
-                        <div class="player__wrapper">
-                            <iframe id="player" type="text/html" width="640" height="360"
+                        <div id="ytplayer" class="player__wrapper">
+                            <!--<iframe id="ytplayer" type="text/html" width="640" height="360"
                             src="http://www.youtube.com/embed/YV9XuvfIudY"
-                            frameborder="0"></iframe>
-                            <div class="player__splash"></div>
+                            frameborder="0"></iframe>-->
                         </div>
+                        <div class="player__splash"></div>
                         <div class="player__controls">
-                            <button onclick="player__start" class="player__start">></button>
+                            <button class="player__start">
+                                <svg class="player__start-icon" style="width: 2.1rem; height: 2.1rem;">
+                                    <use xlink:href="./images/svgicons/sprite.svg#play"></use>
+                                </svg>
+                            </button>
                             <div class="player__playback">
                                 <button class="player__playback-button"></button>
                             </div>
-                            <div class="player__duration">
-                                <span class="player__duration-completed">0:00</span> :
-                                <span class="player__duration-estimate">0:00</span>
+                            <svg class="player__volume-icon" style="width: 2.1rem; height: 2.1rem;">
+                                <use xlink:href="./images/svgicons/sprite.svg#volume"></use>
+                            </svg>
+                            <div class="player__volume">
+                                <buttom class="player__volume-button"></buttom>
                             </div>
                         </div>
                     </div>
@@ -922,54 +928,55 @@
                         </div>
                     </footer>
                 </section>
-                <ul class="switcher">
-                    <li class="switcher__item switcher__item_active">
-                        <a href="0" class="switcher__item-link"></a>
-                    </li>
-                    <li class="switcher__item">
-                        <a href="1" class="switcher__item-link"></a>
-                    </li>
-                    <li class="switcher__item">
-                        <a href="2" class="switcher__item-link"></a>
-                    </li>
-                    <li class="switcher__item">
-                        <a href="3" class="switcher__item-link"></a>
-                    </li>
-                    <li class="switcher__item">
-                        <a  href="4" class="switcher__item-link"></a>
-                    </li>
-                    <li class="switcher__item">
-                        <a  href="5" class="switcher__item-link"></a>
-                    </li>
-                    <li class="switcher__item">
-                        <a href="6" class="switcher__item-link"></a>
-                    </li>
-                    <li class="switcher__item">
-                        <a href="7" class="switcher__item-link"></a>
-                    </li>
-                    <li class="switcher__item">
-                        <a href="8" class="switcher__item-link"></a>
-                    </li>
-                </ul>
-                <div class="section navadapt">
-                    <img class="navadapt__logo" alt="Logo" src="images/logo/Logo1.png">
-                    <nav class="navadapt__wrap">
-                        <ul class="navadapt__list">
-                            <li class="navadapt__item"><a href="#" class="navadapt__link">о нас</a></li>
-                            <li class="navadapt__item"><a href="#" class="navadapt__link">бургеры</a></li>
-                            <li class="navadapt__item"><a href="#" class="navadapt__link">команда</a></li>
-                            <li class="navadapt__item"><a href="#" class="navadapt__link">меню</a></li>
-                            <li class="navadapt__item"><a href="#" class="navadapt__link">отзывы</a></li>
-                            <li class="navadapt__item"><a href="#" class="navadapt__link">контакты</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <a href="#" class="nav__burger-link">
-                    <div  class="nav__burger"></div>
-                </a>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                <script src="scripts/main.js"></script>
             </div>
         </main>
+        <ul class="switcher">
+                <li class="switcher__item switcher__item_active">
+                    <a href="0" class="switcher__item-link"></a>
+                </li>
+                <li class="switcher__item">
+                    <a href="1" class="switcher__item-link"></a>
+                </li>
+                <li class="switcher__item">
+                    <a href="2" class="switcher__item-link"></a>
+                </li>
+                <li class="switcher__item">
+                    <a href="3" class="switcher__item-link"></a>
+                </li>
+                <li class="switcher__item">
+                    <a  href="4" class="switcher__item-link"></a>
+                </li>
+                <li class="switcher__item">
+                    <a  href="5" class="switcher__item-link"></a>
+                </li>
+                <li class="switcher__item">
+                    <a href="6" class="switcher__item-link"></a>
+                </li>
+                <li class="switcher__item">
+                    <a href="7" class="switcher__item-link"></a>
+                </li>
+                <li class="switcher__item">
+                    <a href="8" class="switcher__item-link"></a>
+                </li>
+        </ul>
+        <div class="section navadapt">
+            <img class="navadapt__logo" alt="Logo" src="images/logo/Logo1.png">
+            <nav class="navadapt__wrap">
+                <ul class="navadapt__list">
+                    <li class="navadapt__item navadapt__item_active"><a href="1" class="navadapt__link">о нас</a></li>
+                    <li class="navadapt__item"><a href="2" class="navadapt__link">бургеры</a></li>
+                    <li class="navadapt__item"><a href="3" class="navadapt__link">команда</a></li>
+                    <li class="navadapt__item"><a href="4" class="navadapt__link">меню</a></li>
+                    <li class="navadapt__item"><a href="5" class="navadapt__link">отзывы</a></li>
+                    <li class="navadapt__item"><a href="8" class="navadapt__link">контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+        <a href="#" class="nav__burger-link">
+            <div  class="nav__burger"></div>
+        </a>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="scripts/main.js"></script>
     </body>
 </html>
