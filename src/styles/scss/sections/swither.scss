@@ -39,7 +39,7 @@
     transition: .4s;
     transform: translate(-50%,-50%);
 }
-.switcher__item_activ {
+.switcher__item_active {
     .switcher__item-link::before {
         opacity: 1;
     }
