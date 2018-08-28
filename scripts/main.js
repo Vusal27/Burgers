@@ -1,3 +1,4 @@
+// Бургер меню //
 var navburlink = document.querySelector('.nav__burger-link');
 var navadapt = document.querySelector('.navadapt');
 navburlink.addEventListener('click', toggleClass);
@@ -11,8 +12,7 @@ function toggleClass() {
     navadapt.classList.toggle("navadapt_active");
 }
 ////////////
-
-
+// Аккордион секция команда //
 function accordionTeam() {
     const workers = document.querySelectorAll(".team__item");
     const teamAccord = document.querySelector(".team__list");
@@ -44,6 +44,7 @@ function accordionTeam() {
 }
 accordionTeam()
 ////////////
+// Аккордион секция меню //
 function accordionMenu() {
     const menus = document.querySelectorAll(".menu__item");
     const menuAccord = document.querySelector(".menu__list");
@@ -109,7 +110,7 @@ function accordionMenu() {
 }
 accordionMenu()
 ////////////
-
+// Слайдер //
 const list = document.querySelector(".slider__list");
 const widthContainer = document.querySelector('.slider__wrap').clientWidth;
 const controls = document.querySelector('.slider__arrows');
@@ -120,7 +121,6 @@ function calcWidthList() {
     const widthList = itemCount * widthContainer;
 
     list.style.width = `${widthList}px`;
-    console.log(widthList);
 }
 
 function handlerClick(event) {
@@ -196,7 +196,7 @@ window.addEventListener('load', calcWidthList);
 //     }
 // });
 ////////////
-
+// Popup в секции отзывы //
 function openReviews() {
     const openButton = document.querySelectorAll(".button--comments");
     for (var button of openButton) {
@@ -251,8 +251,7 @@ function openOverlay(content, title) {
   return overlayElement;
 }
 ////////////
-
-
+// Секция форма //
 const myForm = document.querySelector('.form');
 const send = document.querySelector('.send');
 send.addEventListener('click', event => {
@@ -265,27 +264,21 @@ send.addEventListener('click', event => {
             comment: myForm.elements.comment.value,
             to: "mail@mail.ru"
         };
-        console.log(data);
         
         const xhr = new XMLHttpRequest();
         xhr.responseType = 'json';
         xhr.open('POST', 'https://webdev-api.loftschool.com/sendmail');
         xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        console.log(JSON.stringify(data));
         
         xhr.send(JSON.stringify(data));
         xhr.addEventListener('load', () => {
-            console.log(xhr.response);
             
-            if (xhr.response.status === 200) {
-                console.log(xhr.response);
-                document.body.appendChild(openOverlayForm('Отправлено'));
+            if (xhr.status === 200) {
+                document.body.appendChild(openOverlayForm(xhr.response.message));
             } else {
-                console.log(xhr.response.status);
                 document.body.appendChild(openOverlayForm(xhr.response.message));
             }
         });
-        //document.body.appendChild(openOverlayForm('xhr.response'));
     }
 });
 function openOverlayForm(content) {
@@ -338,14 +331,7 @@ function validateForm(form) {
         return formblock.checkValidity();
  }
  ////////////
-
- // function initMap() {
-//   var uluru = {lat: 59.907, lng: 30.246};
-//   var map = new google.maps.Map(
-//       document.getElementById('map'), {zoom: 12, center: uluru});
-//   var marker = new google.maps.Marker({position: uluru, map: map});
-// }
-
+// API яндекс карта //
 ymaps.ready(init);
 
 function init() {
@@ -393,14 +379,14 @@ function init() {
     map.geoObjects.add(placemark4);
 }
 ////////////
-
+// OnaPageScroll //
 (function () {
+    const wrapper = document.querySelector('.wrapper');
     const container = document.querySelector('.main-content');
     const nav = document.querySelector('.switcher');
     const down = document.querySelector('.hero__down');
     const menu = document.querySelector('.nav__list');
-    const orderButton = document.querySelector('.button_color-orange');
-    const orderButtonHeader = document.querySelector('.button_header');
+    const orderButton = document.querySelectorAll('.button_color-orange');
     const tabletMenu = document.querySelector('.navadapt__list');
 
     const duration = 1500;
@@ -413,37 +399,20 @@ function init() {
     menu.addEventListener('click', menuHandlerClick);
     tabletMenu.addEventListener('click', tabletMenuHandlerClick);
     down.addEventListener('click', downHandlerClick);
-    orderButton.addEventListener('click', buttonHandlerClick);
-    orderButtonHeader.addEventListener('click', buttonHeaderHandlerClick);
 
-    function buttonHeaderHandlerClick(e) {
-        e.preventDefault();
-
-        if (e.target.tagName === 'A') {
-            const index = e.target.getAttribute('href');
-            const [active, activenav,  activebuttonHeader] = getActives();
-
-            reActive(false, active, 'section', null, index);
-            reActive(false, activenav, 'switcher__item', null, index);
-            reActive(false, activebuttonHeader, 'button_header', null, index);
-            
-            posY = index;
-            translate(posY);
-        }
+    for (btn of orderButton) {
+        btn.addEventListener('click', buttonHandlerClick);
     }
 
     function buttonHandlerClick(e) {
         e.preventDefault();
-        console.log(1);
 
         if (e.target.tagName === 'A') {
-            console.log(2);
             const index = e.target.getAttribute('href');
             const [active, activenav,  activebutton] = getActives();
 
             reActive(false, active, 'section', null, index);
             reActive(false, activenav, 'switcher__item', null, index);
-            reActive(false, activebutton, 'button_color-orange', null, index);
             
             posY = index;
             translate(posY);
@@ -456,11 +425,10 @@ function init() {
         if (e.target.parentNode.tagName === "A") {
             
             const index = e.target.parentNode.getAttribute('href');
-            const [active, activenav, activedown] = getActives();
+            const [active, activenav] = getActives();
 
             reActive(false, active, 'section', null, index);
             reActive(false, activenav, 'switcher__item', null, index);
-            reActive(false, activedown, 'herodown', null, index);
             
             posY = index;
             translate(posY);
@@ -477,8 +445,6 @@ function init() {
 
             reActive(false, active, 'section', null, index);
             reActive(false, activenav, 'switcher__item', null, index);
-            reActive(false, activemenu, 'nav__item', null, index);
-            reActive(false, activetabletMenu, 'navadapt__item', null, index);
             
             posY = index;
             translate(posY);
@@ -495,7 +461,6 @@ function init() {
 
             reActive(false, active, 'section', null, index);
             reActive(false, activenav, 'switcher__item', null, index);
-            reActive(false, activemenu, 'nav__item', null, index);
             
             posY = index;
             translate(posY);
@@ -511,14 +476,12 @@ function init() {
 
             reActive(false, active, 'section', null, index);
             reActive(false, activenav, 'switcher__item', null, index);
-            reActive(false, activemenu, 'nav__item', null, index);
             
             posY = index;
             translate(posY);
         }
     }
     function handlerWheel(e) {
-        console.log(e.deltaY);
         if (isAmimate) return;
         if (e.deltaY > 0) {
             const isNext = isSlide('next');
@@ -561,26 +524,71 @@ function init() {
             elem[`${vector}ElementSibling`].classList.add(`${_class}_active`);
         } else {
             elem.classList.remove(`${_class}_active`);
-            document.querySelectorAll(`.${_class}`)[index]
-            elem.classList.add(`${_class}_active`);
-            console.log(elem);
-            
-            console.log(document.querySelectorAll(`.${_class}`)[index])
+            document.querySelectorAll(`.${_class}`)[index].classList.add(`${_class}_active`);
         }
     }
     function getActives() {
         const active = document.querySelector('.section_active');
         const activenav = document.querySelector('.switcher__item_active');
-        const activemenu = document.querySelector('.nav__item_active');
-        const activetabletMenu = document.querySelector('.navadapt__item_active');
-        const activedown = document.querySelector('.herodown_active');
-        const activebutton = document.querySelector('.button_color-orange_active');
-        const activebuttonHeader = document.querySelector('.button_header_active');
-        return [active, activenav, activemenu, activetabletMenu, activedown, activebutton, activebuttonHeader];
+        return [active, activenav];
+    }
+
+    function swipe() {
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartY = e.changedTouches[0].screenY;      
+        }, false);
+
+        wrapper.addEventListener('touchmove', e => e.preventDefault());
+
+        document.addEventListener('touchend', e => {
+            touchEndY = e.changedTouches[0].screenY;
+            swipeDirect();
+        }, false);
+
+        function swipeDirect() {
+            let dif = touchStartY - touchEndY;
+               
+            if (dif > 100) {
+                const isNext = isSlide('next');
+                slideTo(isNext, 'next');
+            } else if (dif < - 100) {
+                const isPrev = isSlide('previous');
+                slideTo(isPrev, 'prev');
+            }
+        }
+    }
+
+    function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+
+    if (isMobileDevice()) {
+        swipe()
+    }
+
+    window.addEventListener('keyup', handlerKey);
+
+    function handlerKey(e) {
+        console.log(e.keyCode);
+        if (isAmimate) return;
+        if (e.keyCode === 40) {
+            const isNext = isSlide('next');
+
+            slideTo(isNext, 'next');
+        }
+
+        if (e.keyCode === 38) {
+            const isPrev = isSlide('previous');
+
+            slideTo(isPrev, 'prev');
+        }
     }
 })();
 ////////////
-
+// API Youtube Player //
 let player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player("ytplayer", {
@@ -597,7 +605,6 @@ function onYouTubeIframeAPIReady() {
         },
         events: {
             onReady: onPlayerReady,
-        //     onStateChange: onPlayerStateChange
         }
     });
 }
@@ -624,12 +631,10 @@ $('.player__start').on("click", e => {
     if (playerStatus !== 1) {
         player.playVideo();
         $('.player__splash').addClass('none');
-        //  block.text('||');
         $('.player__start').addClass('paused');
     } else {
         player.pauseVideo();
         $('.player__splash').removeClass('none');
-        // block.html();
         $('.player__start').removeClass('paused');
     } 
 });

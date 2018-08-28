@@ -151,10 +151,7 @@ input, textarea {
     display: block;
     cursor: pointer; }
   .button_header {
-    margin: 0 3.75rem 0 1.25rem;
-    background-color: #e34e29;
-    cursor: pointer;
-    padding: 0; }
+    margin: 0 3.75rem 0 1.25rem; }
   .button_color-orange {
     background-color: #e34e29;
     cursor: pointer;
@@ -1615,7 +1612,7 @@ input, textarea {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
 
-.switcher__item_activ .switcher__item-link::before {
+.switcher__item_active .switcher__item-link::before {
   opacity: 1; }
 
 .navadapt, .navadapt__wrap {
