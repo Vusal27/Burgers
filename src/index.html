@@ -775,11 +775,12 @@
                     <h2 class="title title_color-grey">Как мы работаем</h2>
                     <div class="player__main">
                         <div id="ytplayer" class="player__wrapper">
-                            <!--<iframe id="ytplayer" type="text/html" width="640" height="360"
-                            src="http://www.youtube.com/embed/YV9XuvfIudY"
-                            frameborder="0"></iframe>-->
                         </div>
-                        <div class="player__splash"></div>
+                        <div class="player__splash">
+                            <svg class="player__splash-icon" style="width: 16rem; height: 16rem;">
+                                <use xlink:href="./images/svgicons/sprite.svg#play"></use>
+                            </svg>
+                        </div>
                         <div class="player__controls">
                             <button class="player__start">
                                 <svg class="player__start-icon" style="width: 2.1rem; height: 2.1rem;">
@@ -789,11 +790,13 @@
                             <div class="player__playback">
                                 <button class="player__playback-button"></button>
                             </div>
-                            <svg class="player__volume-icon" style="width: 2.1rem; height: 2.1rem;">
-                                <use xlink:href="./images/svgicons/sprite.svg#volume"></use>
-                            </svg>
-                            <div class="player__volume">
-                                <buttom class="player__volume-button"></buttom>
+                            <button class="player__volume">
+                                <svg class="player__volume-icon" style="width: 2.1rem; height: 2.1rem;">
+                                    <use xlink:href="./images/svgicons/sprite.svg#volume"></use>
+                                </svg>
+                            </button>
+                            <div class="player__volume-line">
+                                <button class="player__volume-button"></button>
                             </div>
                         </div>
                     </div>

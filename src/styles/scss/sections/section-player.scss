@@ -7,6 +7,8 @@
     &__main {
         text-align: center;
         display: inline-block;
+        position: relative;
+        margin: 0 auto;
     }
     &__wrapper {
         display: inline-block;
@@ -14,10 +16,10 @@
     }
     &__controls {
         position: absolute;
-        bottom: -50;
+        bottom: 4px;
         left: 0;
         right: 0;
-        height: 35px;
+        height: 45px;
         background: #3d3d3d;
         opacity: 1;
     }
@@ -30,15 +32,37 @@
         line-height: 0;
         position: absolute;
         left: 10px;
+        top: 5px;
         cursor: pointer;
         &-icon {
             fill: #616161;
             background-color: #3d3d3d;
         }
-        &paused {
-            width: 14px;
+    }
+    .paused {
+        width: 5px;
+        height: 22px;
+        background: #616161;
+        border: transparent;
+        border-radius: 5px;
+        top: 10px;
+        left: 20px;
+        cursor: pointer;
+        .player__start-icon {
+            display: none;
+        }
+        &::before {
+            content:"";
+            display: block;
+            width: 5px;
             height: 22px;
-            border: none;
+            background: #616161;
+            border: transparent;
+            border-radius: 5px;
+            position: absolute;
+            left: 9px;
+            top: 0;
+            cursor: pointer;
         }
     }
     &__playback {
@@ -46,8 +70,8 @@
         height: 4px;
         width: 446px;
         background: #626262;
-        top: 15px;
-        left: 50px;
+        top: 19px;
+        left: 60px;
         cursor: pointer;
         &-button {
             background: #626262;
@@ -65,13 +89,26 @@
     }
     &__volume {
         position: absolute;
+        right: 90px;
+        top: 5px;
+        padding: 0;
+        border: 0;
+        line-height: 0;
+        cursor: pointer;
+        &-icon {
+            fill: #616161;
+            background-color: #3d3d3d;
+        }
+    }
+    &__volume-line {
+        position: absolute;
         height: 4px;
         width: 60px;
         background: #626262;
-        top: 15px;
+        top: 19px;
         right: 20px;
         cursor: pointer;
-        &-button {
+        .player__volume-button {
             background: #626262;
             border-radius: 50px;
             border: none;
@@ -81,13 +118,31 @@
             position: absolute;
             top: -4px;
             transform: translateX(-50%);
-            left: 0;
+            right: 0;
             cursor: pointer;
         }
+    }
+    &__splash {
+        background: transparent;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
         &-icon {
-            fill: #616161;
-            position: absolute;
-            right: 90px;
+            fill: white;
         }
+    }
+    .none {
+        display: none;
+    }
+}
+.mute {
+    .player__volume-icon {
+        fill: red;
     }
 }

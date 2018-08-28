@@ -595,12 +595,26 @@ function onYouTubeIframeAPIReady() {
             autoplay: 0,
             modestbranding: 0
         },
-        // events: {
-        //     onReady: onPlayerReady,
+        events: {
+            onReady: onPlayerReady,
         //     onStateChange: onPlayerStateChange
-        // }
+        }
     });
 }
+
+function onPlayerReady() {
+    const duration = player.getDuration();
+    let interval;
+
+    clearInterval(interval);
+    interval = setInterval(() => {
+        const completed = player.getCurrentTime();
+        const percents = (completed / duration) * 100;
+
+        changeButtonPosition(percents);
+    }, 1000);
+}
+
 const playerStart = document.querySelector('.player__start');
 $('.player__start').on("click", e => {
     e .preventDefault()
@@ -609,10 +623,61 @@ $('.player__start').on("click", e => {
 
     if (playerStatus !== 1) {
         player.playVideo();
-        // block.text('||');
+        $('.player__splash').addClass('none');
+        //  block.text('||');
+        $('.player__start').addClass('paused');
     } else {
         player.pauseVideo();
+        $('.player__splash').removeClass('none');
         // block.html();
-    }
-    
+        $('.player__start').removeClass('paused');
+    } 
 });
+
+$('.player__splash').on("click", e => {
+    e .preventDefault()
+    $('.player__splash').addClass('none');
+    $('.player__start').addClass('paused');
+    player.playVideo();
+});
+
+$('.player__playback').on('click', e => {
+    e.preventDefault()
+
+    const bar = $(e.currentTarget);
+
+    const newButtonPosition = e.pageX - bar.offset().left;
+    const clickedPercents = (newButtonPosition / bar.width()) * 100;
+    const newPlayerTime = (player.getDuration() / 100) * clickedPercents;
+
+    player.seekTo(newPlayerTime);
+    changeButtonPosition(percents);
+
+})
+
+$('.player__volume-line').on('click', e => {
+    e.preventDefault()
+
+    const volume = 100;
+    const volumeLine = $(e.currentTarget);
+
+    const newVolumePosition = e.pageX - volumeLine.offset().left;
+    const clickedVolumePercents = (newVolumePosition / volumeLine.width()) * 100;
+    const newVolume = (volume / 100) * clickedVolumePercents;
+
+    player.setVolume(newVolume);
+    changeVolumePosition(newVolume);
+
+})
+
+function changeButtonPosition(percents) {
+    $('.player__playback-button').css({
+        left: `${percents}%`
+    });
+}
+
+function changeVolumePosition(newVolume) {
+    $('.player__volume-button').css({
+        left: `${newVolume}%`
+    });
+}
