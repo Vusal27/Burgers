@@ -48,10 +48,11 @@ var isAnimate = false;
 function handlerWheel(e) {
     if (!isAnimate) {
         isAnimate = true;
-        if (e.deltaY > 0) {
+        if (e.deltaY > 0 && screen < 8) {
             screen++;  
             changeSwitcher();
-        } else {
+        }
+        if (e.deltaY < 0 && screen > 0) {
             screen--;
             changeSwitcher();
         }
@@ -71,7 +72,24 @@ function changeSwitcher() {
     }
 }
 
+window.addEventListener('keyup', handlerKey);
 
+function handlerKey(e) {
+    if (!isAnimate) {
+        isAnimate = true;
+        if (e.keyCode === 40 && screen < 8) {
+            screen++;  
+            changeSwitcher();
+        }
+        if (e.keyCode === 38 && screen > 0) {
+            screen--;
+            changeSwitcher();
+        }
+    }
+    setTimeout(function() {
+        isAnimate = false;
+    }, 1500);
+}
 
 // Бургер меню //
 var navburlink = document.querySelector('.nav__burger-link');
@@ -84,7 +102,6 @@ for (var i=0;i<navadaptlink.length;i++) {
 }
 function toggleClass() {
     event.preventDefault();
-    document.body.classList.toggle('overflow');
     navburlink.classList.toggle("nav__burger-link--active");
     navadapt.classList.toggle("navadapt_active");
     

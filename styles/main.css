@@ -225,9 +225,6 @@ input, textarea {
       .title_menu {
         left: 0.625rem; } }
 
-.overflow {
-  overflow: hidden; }
-
 .hero {
   background: url("../images/bg/bg11.jpg") 0 0/cover no-repeat; }
   .hero__content {
@@ -1328,6 +1325,7 @@ input, textarea {
     .form__part:first-child {
       margin-left: 0; }
   .form__title {
+    display: block;
     font-size: 0.875rem;
     color: white;
     margin-bottom: 5px;
@@ -1346,7 +1344,8 @@ input, textarea {
             border-radius: 5px;
     width: 100%; }
     .form__input--comment {
-      height: 5.625rem; }
+      height: 5.625rem;
+      resize: none; }
   .form__block {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
