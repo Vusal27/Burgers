@@ -1,213 +1,107 @@
+// Слайдер
+var slider = document.querySelector('.slider__list');
+var sliderPos = 0;
+function sliderToLeftX() {
+    if (sliderPos !== (0)) {
+        sliderPos += 80;
+        slider.style.transform='translateX(' + sliderPos + 'vw)';
+    }
+}
+function sliderToRightX() {
+    if (sliderPos !== (-320)) {
+        sliderPos -= 80;
+        slider.style.transform='translateX(' + sliderPos + 'vw)';
+    }
+}
+
+// Навигация по hash
+var switcher = document.querySelectorAll(".switcher__item");
+var screen = 0;
+
+$("a").on('click', function(event) {
+    if (this.hash !== "") {
+        event.preventDefault();
+        var hash = this.hash;
+
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 2000, function(){
+
+        window.location.hash = hash;
+        });
+        
+        for (i=0;i<switcher.length;i++) {
+            var switcherAttr = switcher[i].firstElementChild.getAttribute('href');
+            if (this.hash === switcherAttr) {
+                screen = switcherAttr[1];
+                switcher[i].classList.add('switcher__item_active');
+            } else {
+                switcher[i].classList.remove('switcher__item_active');
+            }
+        }
+    }
+});
+
+// onePageScroll
+window.addEventListener('wheel', handlerWheel);
+var isAnimate = false;
+function handlerWheel(e) {
+    if (!isAnimate) {
+        isAnimate = true;
+        if (e.deltaY > 0) {
+            screen++;  
+            changeSwitcher();
+        } else {
+            screen--;
+            changeSwitcher();
+        }
+    }
+    setTimeout(function() {
+        isAnimate = false;
+    }, 1500);
+}
+
+function changeSwitcher() {
+    for (var i=0;i<switcher.length;i++) {
+        switcher[i].classList.remove('switcher__item_active');
+        if ('#' + screen === switcher[i].firstElementChild.getAttribute('href')) {
+            switcher[i].firstElementChild.click();
+            switcher[i].classList.add('switcher__item_active');
+        }
+    }
+}
+
+
+
 // Бургер меню //
 var navburlink = document.querySelector('.nav__burger-link');
 var navadapt = document.querySelector('.navadapt');
 navburlink.addEventListener('click', toggleClass);
-
-var navadaptlink = document.querySelectorAll ("a.navadapt__link");
-for (var link of navadaptlink){
-	link.addEventListener('click', toggleClass);
+  
+var navadaptlink = document.querySelectorAll(".navadapt__link");
+for (var i=0;i<navadaptlink.length;i++) {
+    navadaptlink[i].addEventListener('click', toggleClass);
 }
 function toggleClass() {
+    event.preventDefault();
+    document.body.classList.toggle('overflow');
     navburlink.classList.toggle("nav__burger-link--active");
     navadapt.classList.toggle("navadapt_active");
-}
-////////////
-// Аккордион секция команда //
-function accordionTeam() {
-    const workers = document.querySelectorAll(".team__item");
-    const teamAccord = document.querySelector(".team__list");
-
-    teamAccord.addEventListener("click", event => {
-        const target = event.target;
-
-        if (target.classList.contains("team__link")) {
-            const worker = target.parentNode;
-            const content = target.nextElementSibling;
-            const contentHeight = content.firstElementChild.clientHeight;
-
-            for (const iterator of workers) {
-                if (iterator !== worker) {
-                    iterator.classList.remove("team__item--active");
-                    iterator.lastElementChild.style.height = 0;
-                }
-            }
-
-            if (worker.classList.contains("team__item--active")) {
-                worker.classList.remove("team__item--active");
-                content.style.height = 0;
-            } else {
-                worker.classList.add("team__item--active");
-                content.style.height = contentHeight + "px";
-            }
-        }
-    });
-}
-accordionTeam()
-////////////
-// Аккордион секция меню //
-function accordionMenu() {
-    const menus = document.querySelectorAll(".menu__item");
-    const menuAccord = document.querySelector(".menu__list");
-
-    menuAccord.addEventListener("click", event => {
-        let target = event.target.parentNode;
-        let menuit = target.parentNode;
-        let content = target.nextElementSibling;
-
-        const tarWidth = target.clientWidth;
-        const windowWidth = document.documentElement.clientWidth;
-        const layoutContentWidth = 480;
-        const breakpointPhone = 480;
-        const closeMenuWidth = tarWidth * menus.length;
-        const openMenuWidth = closeMenuWidth + layoutContentWidth;
-
-        if (event.target.classList.contains("menu__title")) {
-            name()
-        }
-        target = event.target;
-        menuit = target.parentNode;
-        content = target.nextElementSibling;
-        
-        if (target.classList.contains("menu__link")) {
-            name()
-        }
-        function name() {
-            
-            for (const iterator of menus) {
-                if (iterator !== menuit) {
-                    iterator.classList.remove("menu__item--active");
-                    iterator.lastElementChild.style.width = 0;
-                    menuAccord.style.transform = 'translateX(0)';
-                }
-            }
-
-            if (menuit.classList.contains("menu__item--active")) {
-                menuit.classList.remove("menu__item--active");
-                content.style.width = 0;
-            } else {
-                menuit.classList.add("menu__item--active");
-                
-                if (windowWidth > breakpointPhone && windowWidth < openMenuWidth) {
-                    content.style.width = windowWidth - closeMenuWidth + 'px';
-                } else if (windowWidth <= breakpointPhone) {
-                    let num
-
-                    for (let i = 0; i < menus.length; i++) {
-
-                        if(menus[i] === menuit) {
-                            num = menus.length - (i + 1)
-                        }
-                    }
-
-                    menuAccord.style.transform = `translateX(${tarWidth * num}px)`;
-                    content.style.width = windowWidth - tarWidth + 'px';
-                } else {
-                    content.style.width = layoutContentWidth + 'px';
-                }  
-            }
-        }
-    });
-}
-accordionMenu()
-////////////
-// Слайдер //
-const list = document.querySelector(".slider__list");
-const widthContainer = document.querySelector('.slider__wrap').clientWidth;
-const controls = document.querySelector('.slider__arrows');
-var pos = 0;
-
-function calcWidthList() {
-    const itemCount = list.children.length;
-    const widthList = itemCount * widthContainer;
-
-    list.style.width = `${widthList}px`;
+    
 }
 
-function handlerClick(event) {
-    if (event.target.tagName === 'BUTTON') {
-        slide(event.target);
-    }
-}
-
-function slide(target) {
-    const vector = target.dataset.vector;
-
-    switch (vector) {
-        case 'next':
-            slideTo(vector);
-            break;
-        case 'prev':
-            slideTo(vector);
-            break;
-    }
-}
-
-function slideTo(vector) {
-    const active = document.querySelector('.active');
-    if (vector === 'next') {
-        var nextElement = active.nextElementSibling;
-    } else {
-        var prevElement = active.previousElementSibling;
-    }
-
-    if (nextElement) {
-        pos -= widthContainer;
-        active.classList.remove('active');
-        nextElement.classList.add('active');
-        translate(pos);
-    } else if (prevElement) {
-        pos += widthContainer;
-        active.classList.remove('active');
-        prevElement.classList.add('active');
-        translate(pos);
-    }
-}
-
-function translate(pos) {
-    list.style.transform = `translateX(${pos}px)`;
-}
-
-controls.addEventListener('click', handlerClick);
-window.addEventListener('load', calcWidthList);
-////////////
-
-// const left = document.querySelector(".slider__arrowprew");
-// const right = document.querySelector(".slider__arrownext");
-// const list = document.querySelector(".slider__list");
-// const wrap = document.querySelector(".slider__wrap");
-
-// const minRight = 0;
-// const step = wrap.clientWidth;
-// const maxRight = list.clientWidth -= step;
-// let currentRight = 0;
-
-// list.style.right = currentRight;
-
-// right.addEventListener("click", function() {
-//     if (currentRight < maxRight) {
-//         currentRight += step;
-//         list.style.right = currentRight + "px";
-//     }
-// });
-// left.addEventListener("click", function() {
-//     if (currentRight > minRight) {
-//         currentRight -= step;
-//         list.style.right = currentRight + "px";
-//     }
-// });
-////////////
 // Popup в секции отзывы //
 function openReviews() {
-    const openButton = document.querySelectorAll(".button--comments");
-    for (var button of openButton) {
-        button.addEventListener('click', function(e) {
-            let content = e.target.previousElementSibling.textContent;
-            let title = e.target.previousElementSibling.previousElementSibling.textContent;
-            if (e.target.classList.contains("button--desctop")) {
+    var openButton = document.querySelectorAll(".button--comments");
+    for (var i=0;i<openButton.length;i++) {
+        openButton[i].addEventListener('click', function(event) {
+            var content = event.target.previousElementSibling.textContent;
+            var title = event.target.previousElementSibling.previousElementSibling.textContent;
+            if (event.target.classList.contains("button--desctop")) {
                 document.body.appendChild(openOverlay(content, title));
             } else {
-                content = e.target.previousElementSibling.previousElementSibling.textContent;
-                title = e.target.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+                content = event.target.previousElementSibling.previousElementSibling.textContent;
+                title = event.target.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
                 document.body.appendChild(openOverlay(content, title));
             }
         });
@@ -216,30 +110,31 @@ function openReviews() {
 openReviews()
 ////
 function openOverlay(content, title) {
-  const overlayElement = document.createElement("div");
+  var overlayElement = document.createElement("div");
   overlayElement.classList.add("overlay");
-  overlayElement.addEventListener("click", e => {
+  overlayElement.addEventListener("click", function(e) {
     if (e.target === overlayElement) {
     closeElement.click();
     }
   });
 
-  const containerElement = document.createElement("div");
+  var containerElement = document.createElement("div");
   containerElement.classList.add("overlaycontainer");
 
-  const contentElement = document.createElement("div");
+  var contentElement = document.createElement("div");
   contentElement.classList.add("overlaycontent");
   contentElement.innerHTML = content;
 
-  const titleElement = document.createElement("h3");
+  var titleElement = document.createElement("h3");
   titleElement.classList.add("comments__overlaytitle");
   titleElement.textContent = title;
 
-  const closeElement = document.createElement("a");
+  var closeElement = document.createElement("a");
   closeElement.classList.add("close");
   closeElement.textContent = "x";
   closeElement.href = "#";
   closeElement.addEventListener("click", function() {
+      event.preventDefault();
     document.body.removeChild(overlayElement);
   });
 
@@ -250,54 +145,63 @@ function openOverlay(content, title) {
 
   return overlayElement;
 }
-////////////
+
+
 // Секция форма //
-const myForm = document.querySelector('.form');
-const send = document.querySelector('.send');
-send.addEventListener('click', event => {
-    event.preventDefault();
+var myForm = document.querySelector('.form');
+var send = document.querySelector('.send');
+send.addEventListener('click', function(e) {
+    e.preventDefault();
     
     if (validateForm(myForm)) {
-        const data = {
+        myForm.elements.name.value = '';
+        myForm.elements.phone.value = '';
+        myForm.elements.comment.value = '';
+        myForm.elements.street.value = '';
+        myForm.elements.house.value = '';
+        myForm.elements.building.value = '';
+        myForm.elements.apartment.value = '';
+        myForm.elements.floor.value = '';
+        var data = {
             name: myForm.elements.name.value,
             phone: myForm.elements.phone.value,
             comment: myForm.elements.comment.value,
             to: "mail@mail.ru"
         };
         
-        const xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
         xhr.responseType = 'json';
-        xhr.open('POST', 'https://webdev-api.loftschool.com/sendmail');
+        xhr.open('POST', 'url');
         xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         
         xhr.send(JSON.stringify(data));
-        xhr.addEventListener('load', () => {
+        xhr.addEventListener('load', function() {
             
             if (xhr.status === 200) {
-                document.body.appendChild(openOverlayForm(xhr.response.message));
+                document.body.appendChild(openOverlayForm(xhr.message));
             } else {
-                document.body.appendChild(openOverlayForm(xhr.response.message));
+                document.body.appendChild(openOverlayForm(xhr.message));
             }
         });
     }
 });
 function openOverlayForm(content) {
-    const overlayElement = document.createElement("div");
+    var overlayElement = document.createElement("div");
     overlayElement.classList.add("over-lay");
-    overlayElement.addEventListener("click", e => {
+    overlayElement.addEventListener("click", function(e) {
         if (e.target === overlayElement) {
         closeElement.click();
         }
     });
 
-    const containerElement = document.createElement("div");
+    var containerElement = document.createElement("div");
     containerElement.classList.add("overlay-container");
 
-    const contentElement = document.createElement("div");
+    var contentElement = document.createElement("div");
     contentElement.classList.add("overlay-content");
     contentElement.innerHTML = content;
 
-    const closeElement = document.createElement("button");
+    var closeElement = document.createElement("button");
     closeElement.classList.add("button_close");
     closeElement.textContent = "закрыть";
     closeElement.addEventListener("click", function() {
@@ -312,7 +216,7 @@ function openOverlayForm(content) {
 }
 
 function validateForm(form) {
-    let valid = true;
+    var valid = true;
 
     if (!validateformblock(form.elements.name)) {
         valid = false;
@@ -330,7 +234,206 @@ function validateForm(form) {
         formblock.nextElementSibling.textContent = formblock.validationMessage;
         return formblock.checkValidity();
  }
- ////////////
+
+ // Аккордион секция команда //
+function accordionTeam() {
+    var workers = document.querySelectorAll(".team__item");
+    var teamAccord = document.querySelector(".team__list");
+
+    teamAccord.addEventListener("click", function(event) {
+        event.preventDefault();
+        var target = event.target;
+
+        if (target.classList.contains("team__link")) {
+            var worker = target.parentNode;
+            var content = target.nextElementSibling;
+            var contentHeight = content.firstElementChild.clientHeight;
+
+            for (var i=0;i<workers.length;i++) {
+                if (workers[i] !== worker) {
+                    workers[i].classList.remove("team__item--active");
+                    workers[i].lastElementChild.style.height = 0;
+                }
+            }
+
+            if (worker.classList.contains("team__item--active")) {
+                worker.classList.remove("team__item--active");
+                content.style.height = 0;
+            } else {
+                worker.classList.add("team__item--active");
+                content.style.height = contentHeight + "px";
+            }
+        }
+    });
+}
+accordionTeam();
+
+// Аккордион секция меню //
+function accordionMenu() {
+    var menus = document.querySelectorAll(".menu__item");
+    var menuAccord = document.querySelector(".menu__list");
+
+    menuAccord.addEventListener("click", function(event) {
+        event.preventDefault();
+        var target = event.target.parentNode;
+        var menuit = target.parentNode;
+        var content = target.nextElementSibling;
+
+        var tarWidth = target.clientWidth;
+        var windowWidth = document.documentElement.clientWidth;
+        var layoutContentWidth = 480;
+        var breakpointPhone = 480;
+        var closeMenuWidth = tarWidth * menus.length;
+        var openMenuWidth = closeMenuWidth + layoutContentWidth;
+
+        if (event.target.classList.contains("menu__title")) {
+            name()
+        }
+        target = event.target;
+        menuit = target.parentNode;
+        content = target.nextElementSibling;
+        
+        if (target.classList.contains("menu__link")) {
+            name()
+        }
+        function name() {
+            
+            for (var i=0;i<menus.length;i++) {
+                if (menus[i] !== menuit) {
+                    menus[i].classList.remove("menu__item--active");
+                    menus[i].lastElementChild.style.width = 0;
+                    menuAccord.style.transform = 'translateX(0)';
+                }
+            }
+
+            if (menuit.classList.contains("menu__item--active")) {
+                menuit.classList.remove("menu__item--active");
+                content.style.width = 0;
+            } else {
+                menuit.classList.add("menu__item--active");
+                
+                if (windowWidth > breakpointPhone && windowWidth < openMenuWidth) {
+                    content.style.width = windowWidth - closeMenuWidth + 'px';
+                } else if (windowWidth <= breakpointPhone) {
+                    var num
+
+                    for (var i = 0; i < menus.length; i++) {
+
+                        if(menus[i] === menuit) {
+                            num = menus.length - (i + 1)
+                        }
+                    }
+
+                    menuAccord.style.transform = 'translateX(' + (tarWidth * num)+'px)';
+                    content.style.width = windowWidth - tarWidth + 'px';
+                } else {
+                    content.style.width = layoutContentWidth + 'px';
+                }  
+            }
+        }
+    });
+}
+accordionMenu();
+
+// API Youtube Player //
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player("ytplayer", {
+        width: "660",
+        height: "405",
+        videoId: "zmg_jOwa9Fc",
+        playerVars: {
+            controls: 0,
+            disablekb: 0,
+            showinfo: 0,
+            rel: 0,
+            autoplay: 0,
+            modestbranding: 0
+        },
+        events: {
+            onReady: onPlayerReady,
+        }
+    });
+}
+
+function onPlayerReady() {
+    var duration = player.getDuration();
+    var interval;
+
+    clearInterval(interval);
+    interval = setInterval(function() {
+        var completed = player.getCurrentTime();
+        var percents = (completed / duration) * 100;
+
+        changeButtonPosition(percents);
+    }, 1000);
+}
+
+var playerStart = document.querySelector('.player__start');
+$('.player__start').on("click", function(e) {
+    e.preventDefault()
+    var block = $(e.currentTarget);
+    var playerStatus = player.getPlayerState();
+
+    if (playerStatus !== 1) {
+        player.playVideo();
+        $('.player__splash').addClass('none');
+        $('.player__start').addClass('paused');
+    } else {
+        player.pauseVideo();
+        $('.player__splash').removeClass('none');
+        $('.player__start').removeClass('paused');
+    } 
+});
+
+$('.player__splash').on("click", function(e) {
+    e .preventDefault()
+    $('.player__splash').addClass('none');
+    $('.player__start').addClass('paused');
+    player.playVideo();
+});
+
+$('.player__playback').on('click', function(e) {
+    e.preventDefault()
+
+    var bar = $(e.currentTarget);
+
+    var newButtonPosition = e.pageX - bar.offset().left;
+    var clickedPercents = (newButtonPosition / bar.width()) * 100;
+    var newPlayerTime = (player.getDuration() / 100) * clickedPercents;
+
+    player.seekTo(newPlayerTime);
+    changeButtonPosition(percents);
+
+})
+
+$('.player__volume-line').on('click', function(e) {
+    e.preventDefault()
+
+    var volume = 100;
+    var volumeLine = $(e.currentTarget);
+
+    var newVolumePosition = e.pageX - volumeLine.offset().left;
+    var clickedVolumePercents = (newVolumePosition / volumeLine.width()) * 100;
+    var newVolume = (volume / 100) * clickedVolumePercents;
+
+    player.setVolume(newVolume);
+    changeVolumePosition(newVolume);
+
+})
+
+function changeButtonPosition(percents) {
+    $('.player__playback-button').css({
+        left: percents + '%'
+    });
+}
+
+function changeVolumePosition(newVolume) {
+    $('.player__volume-button').css({
+        left: newVolume + '%'
+    });
+}
+
 // API яндекс карта //
 ymaps.ready(init);
 
@@ -377,312 +480,4 @@ function init() {
     map.geoObjects.add(placemark2);
     map.geoObjects.add(placemark3);
     map.geoObjects.add(placemark4);
-}
-////////////
-// OnaPageScroll //
-(function () {
-    const wrapper = document.querySelector('.wrapper');
-    const container = document.querySelector('.main-content');
-    const nav = document.querySelector('.switcher');
-    const down = document.querySelector('.hero__down');
-    const menu = document.querySelector('.nav__list');
-    const orderButton = document.querySelectorAll('.button_color-orange');
-    const tabletMenu = document.querySelector('.navadapt__list');
-
-    const duration = 1500;
-    let posY = 0;
-    let isAmimate = false
-
-
-    window.addEventListener('wheel', handlerWheel);
-    nav.addEventListener('click', handlerClick);
-    menu.addEventListener('click', menuHandlerClick);
-    tabletMenu.addEventListener('click', tabletMenuHandlerClick);
-    down.addEventListener('click', downHandlerClick);
-
-    for (btn of orderButton) {
-        btn.addEventListener('click', buttonHandlerClick);
-    }
-
-    function buttonHandlerClick(e) {
-        e.preventDefault();
-
-        if (e.target.tagName === 'A') {
-            const index = e.target.getAttribute('href');
-            const [active, activenav,  activebutton] = getActives();
-
-            reActive(false, active, 'section', null, index);
-            reActive(false, activenav, 'switcher__item', null, index);
-            
-            posY = index;
-            translate(posY);
-        }
-    }
-    
-    function downHandlerClick(e) {
-        e.preventDefault();
-
-        if (e.target.parentNode.tagName === "A") {
-            
-            const index = e.target.parentNode.getAttribute('href');
-            const [active, activenav] = getActives();
-
-            reActive(false, active, 'section', null, index);
-            reActive(false, activenav, 'switcher__item', null, index);
-            
-            posY = index;
-            translate(posY);
-        }
-    }
-
-    function tabletMenuHandlerClick(e) {
-        e.preventDefault();
-
-        if (e.target.tagName === 'A') {
-            
-            const index = e.target.getAttribute('href');
-            const [active, activenav, activemenu, activetabletMenu] = getActives();
-
-            reActive(false, active, 'section', null, index);
-            reActive(false, activenav, 'switcher__item', null, index);
-            
-            posY = index;
-            translate(posY);
-        }
-    }
-
-    function menuHandlerClick(e) {
-        e.preventDefault();
-
-        if (e.target.tagName === 'A') {
-            
-            const index = e.target.getAttribute('href');
-            const [active, activenav, activemenu] = getActives();
-
-            reActive(false, active, 'section', null, index);
-            reActive(false, activenav, 'switcher__item', null, index);
-            
-            posY = index;
-            translate(posY);
-        }
-    }
-    
-    function handlerClick(e) {
-        e.preventDefault();
-
-        if (e.target.tagName === 'A') {
-            const index = e.target.getAttribute('href');
-            const [active, activenav, activemenu] = getActives();
-
-            reActive(false, active, 'section', null, index);
-            reActive(false, activenav, 'switcher__item', null, index);
-            
-            posY = index;
-            translate(posY);
-        }
-    }
-    function handlerWheel(e) {
-        if (isAmimate) return;
-        if (e.deltaY > 0) {
-            const isNext = isSlide('next');
-            slideTo(isNext, 'next');
-        } else {
-            const isPrev = isSlide('previous');
-            slideTo(isPrev, 'prev');
-        }
-    }
-    function slideTo(resolve, vector) {
-        if (vector === 'next' && resolve) {
-            posY++;
-            translate(posY);
-        }
-        if (vector === 'prev' && resolve) {
-            posY--;
-            translate(posY);
-        }
-    }
-    function translate(pos) {
-        container.style.transform = `translate3d(0, ${-pos * 100}%,0)`;
-        container.style.transition = `all ${duration}ms ease 0s`;
-        isAmimate = true
-        setTimeout(() => {
-            isAmimate = false;
-        }, duration)
-    }
-    function isSlide(vector) {
-        const [active, activenav] = getActives()
-
-        if (active[`${vector}ElementSibling`]) {
-            reActive(true, active, 'section', vector);
-            reActive(true, activenav, 'switcher__item', vector);
-            return true
-        }
-    }
-    function reActive(isSibling, elem, _class, vector, index) {
-        if (isSibling) {
-            elem.classList.remove(`${_class}_active`);
-            elem[`${vector}ElementSibling`].classList.add(`${_class}_active`);
-        } else {
-            elem.classList.remove(`${_class}_active`);
-            document.querySelectorAll(`.${_class}`)[index].classList.add(`${_class}_active`);
-        }
-    }
-    function getActives() {
-        const active = document.querySelector('.section_active');
-        const activenav = document.querySelector('.switcher__item_active');
-        return [active, activenav];
-    }
-
-    function swipe() {
-        let touchStartY = 0;
-        let touchEndY = 0;
-
-        document.addEventListener('touchstart', e => {
-            touchStartY = e.changedTouches[0].screenY;      
-        }, false);
-
-        wrapper.addEventListener('touchmove', e => e.preventDefault());
-
-        document.addEventListener('touchend', e => {
-            touchEndY = e.changedTouches[0].screenY;
-            swipeDirect();
-        }, false);
-
-        function swipeDirect() {
-            let dif = touchStartY - touchEndY;
-               
-            if (dif > 100) {
-                const isNext = isSlide('next');
-                slideTo(isNext, 'next');
-            } else if (dif < - 100) {
-                const isPrev = isSlide('previous');
-                slideTo(isPrev, 'prev');
-            }
-        }
-    }
-
-    function isMobileDevice() {
-        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-    }
-
-    if (isMobileDevice()) {
-        swipe()
-    }
-
-    window.addEventListener('keyup', handlerKey);
-
-    function handlerKey(e) {
-        console.log(e.keyCode);
-        if (isAmimate) return;
-        if (e.keyCode === 40) {
-            const isNext = isSlide('next');
-
-            slideTo(isNext, 'next');
-        }
-
-        if (e.keyCode === 38) {
-            const isPrev = isSlide('previous');
-
-            slideTo(isPrev, 'prev');
-        }
-    }
-})();
-////////////
-// API Youtube Player //
-let player;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player("ytplayer", {
-        width: "660",
-        height: "405",
-        videoId: "zmg_jOwa9Fc",
-        playerVars: {
-            controls: 0,
-            disablekb: 0,
-            showinfo: 0,
-            rel: 0,
-            autoplay: 0,
-            modestbranding: 0
-        },
-        events: {
-            onReady: onPlayerReady,
-        }
-    });
-}
-
-function onPlayerReady() {
-    const duration = player.getDuration();
-    let interval;
-
-    clearInterval(interval);
-    interval = setInterval(() => {
-        const completed = player.getCurrentTime();
-        const percents = (completed / duration) * 100;
-
-        changeButtonPosition(percents);
-    }, 1000);
-}
-
-const playerStart = document.querySelector('.player__start');
-$('.player__start').on("click", e => {
-    e .preventDefault()
-    const block = $(e.currentTarget);
-    const playerStatus = player.getPlayerState();
-
-    if (playerStatus !== 1) {
-        player.playVideo();
-        $('.player__splash').addClass('none');
-        $('.player__start').addClass('paused');
-    } else {
-        player.pauseVideo();
-        $('.player__splash').removeClass('none');
-        $('.player__start').removeClass('paused');
-    } 
-});
-
-$('.player__splash').on("click", e => {
-    e .preventDefault()
-    $('.player__splash').addClass('none');
-    $('.player__start').addClass('paused');
-    player.playVideo();
-});
-
-$('.player__playback').on('click', e => {
-    e.preventDefault()
-
-    const bar = $(e.currentTarget);
-
-    const newButtonPosition = e.pageX - bar.offset().left;
-    const clickedPercents = (newButtonPosition / bar.width()) * 100;
-    const newPlayerTime = (player.getDuration() / 100) * clickedPercents;
-
-    player.seekTo(newPlayerTime);
-    changeButtonPosition(percents);
-
-})
-
-$('.player__volume-line').on('click', e => {
-    e.preventDefault()
-
-    const volume = 100;
-    const volumeLine = $(e.currentTarget);
-
-    const newVolumePosition = e.pageX - volumeLine.offset().left;
-    const clickedVolumePercents = (newVolumePosition / volumeLine.width()) * 100;
-    const newVolume = (volume / 100) * clickedVolumePercents;
-
-    player.setVolume(newVolume);
-    changeVolumePosition(newVolume);
-
-})
-
-function changeButtonPosition(percents) {
-    $('.player__playback-button').css({
-        left: `${percents}%`
-    });
-}
-
-function changeVolumePosition(newVolume) {
-    $('.player__volume-button').css({
-        left: `${newVolume}%`
-    });
 }
