@@ -1,5 +1,6 @@
 body {
     font-family: 'ubuntu', Helvetica, sans-serif;
+    overflow: hidden;
 }
 html, body {
     width: 100%;
@@ -38,7 +39,6 @@ input, textarea {
     box-sizing: border-box;
 }
 .wrapper {
-    overflow:hidden;
     position: relative;
     height: 100%;
 }
@@ -70,10 +70,14 @@ input, textarea {
 }
 .section {
     height: 100%;
+    max-height: 100vh;
     min-height: 650px;
     position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 .button {
+    outline: none;
     padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;
@@ -82,20 +86,16 @@ input, textarea {
     color: white;
     border: none;
     cursor: pointer;
-    &_order--link {
-        color: white;
-        padding: 10px 15px;
-        display: block;
-        cursor: pointer;
-    }
     &_header {
         margin: 0 60px 0 20px;
+        z-index: 100;
 
     }
     &_color-orange {
         background-color: #e34e29;
-        cursor: pointer;
-        padding: 0;
+        color: white;
+        padding: 10px 15px;
+        display: block;
     }
     &--comments {
         background-color: $sgrey;
@@ -105,13 +105,13 @@ input, textarea {
         }          
     }
     &--desctop {
-        @include phone() {
+        @include tablet() {
             display: none;
         }
     }
     &--phonesize {
         display: none;
-        @include phone() {
+        @include tablet() {
             display: block;
         }
     }
@@ -142,9 +142,13 @@ input, textarea {
         margin-bottom: 40px;
     }
     &_slide {
+        font-size: 65px;
         color: white;
         margin-bottom: 30px;
         line-height: 1;
+        @include phone() {
+            font-size: 50px;
+        }
     }
     &_margin-button {
         margin-bottom: 15px;
@@ -165,4 +169,9 @@ input, textarea {
             left: 10px;
         }
     }
+}
+
+
+.overflow {
+    overflow: hidden;
 }

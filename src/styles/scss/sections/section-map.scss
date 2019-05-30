@@ -1,6 +1,7 @@
 .map-main {
     position: relative;
     display: flex;
+    flex-flow: column;
 }
 .map {
     flex: 1;

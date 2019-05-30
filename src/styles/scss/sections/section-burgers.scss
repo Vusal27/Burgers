@@ -1,11 +1,18 @@
 .burgers {
     background: linear-gradient(to top, #f9b43b 0%, #eb8c38 48%, #f9b43b 74%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
 }
 .slider {
-    width: 100%;
     position: relative;
+    width: 80vw;
+    max-height: 90vh;
     &__wrap {
         overflow: hidden;
+        width: 80vw;
+        min-width: 80vw;
     }
     &__list {
         display: flex;
@@ -13,30 +20,38 @@
     }
     &__item {
         position: relative;
-        flex: 1;
+        box-sizing: border-box;
+        width: 80vw;
+        min-width: 80vw;
         padding: 0 32px;
     }
 }
 .slide {
     display: flex;
     align-items: center;
+    width: 100%;
     @include tablet() {
         flex-direction: column;
         align-items: center;
     }
     &__picture {
-    padding: 45px 0;
-    flex: 1;
-    @include tablet() {
-        padding-bottom: 0;
-        flex: auto;
-        text-align: center;
+        padding: 45px 0;
+        flex: 1;
+        width: 100%;
+        @include tablet() {
+            padding-bottom: 0;
+            flex: auto;
+            text-align: center;
+            max-height: 300px;
+        }
+        @include phone() {
+            max-height: 205px;
         }
     }
     &__img {
         max-width: 100%;
         @include tablet() {
-            max-width: 90%;
+            max-width: 80%;
         }
         @include phone() {
             max-width: 80%;
@@ -50,6 +65,7 @@
     &__desc {
         flex: 1;
         margin-left: 20px;
+        width: 100%;
         @include tablet() {
             flex: auto;
             margin-left: 0;
@@ -62,6 +78,7 @@
         line-height: 1.7;
         font-weight: 300;
         margin-bottom: 15px;
+        width: 100%;
     }
     &__order {
         display: flex;
@@ -176,6 +193,8 @@
         top: 30px;
         font-size: 22px;
         position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .kkal__unit {
         font-size: 15px;
@@ -188,10 +207,6 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    @include phone() {
-        left: 5%;
-        width: 90%;
-    }
 }
 .slider__arrow {
     width: 30px;

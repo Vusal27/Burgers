@@ -4,6 +4,7 @@
         display: flex;
         @include phone() {
             flex-flow: column;
+            min-height: 450px;
         }
     }
     &__item {
@@ -17,6 +18,8 @@
         }
         @include phone() {
             width: 95%;
+            min-height: 115px;
+            height: 115px;
             flex-flow: row;
             margin-bottom: 32px;
         }

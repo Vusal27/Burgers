@@ -102,6 +102,12 @@
         }
         &-text {
             font-size: 14px;
+            max-width: 160px;
+            @include tablet() {
+                align-self: center;
+                max-width: 280px;
+
+            }
         }
     }
 }
